@@ -4,6 +4,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
     <link rel="stylesheet" href="https://code.getmdl.io/1.1.1/material.red-amber.min.css"/>
     <script src="https://code.getmdl.io/1.1.1/material.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="main.js"></script>
   
     <head>
         <meta charset="UTF-8"/>
@@ -11,45 +13,47 @@
     </head>
 
     <body>
-        
-        <style>
-        .demo-layout-transparent {
-        background: url('../assets/demos/transparent.jpg') center / cover;
-        }
-        .demo-layout-transparent .mdl-layout__header,
-        .demo-layout-transparent .mdl-layout__drawer-button {
-        /* This background is dark, so we set text to white. Use 87% black instead if
-            your background is light. */
-        color: white;
-        }
-        </style>
-
-        <div class="demo-layout-transparent mdl-layout mdl-js-layout">
-        <header class="mdl-layout__header mdl-layout__header--transparent">            
-            <div style="text-align:center; margin-top:30px;">
-            <img src="/media/brizzlebears_logo.svg" width="5%"/>
-            <a href="index.html"><img src="/media/brizzlepuffs_logo.svg" width="8%"/></a>
-            <img src="/media/brizzlebees_logo.svg" width="5%"/>
+              
+        <!--Layout-->
+        <div class="mdl-layout mdl-js-layout">
+            
+            <!--Header-->
+            <header class="mdl-layout__header mdl-layout__header--transparent">
+                
+                <!--Logos-->           
+                <div style="text-align:center; margin-top:30px;">
+                    <img src="/media/brizzlebears_logo.svg" width="5%"/>
+                    <a href="./index.html"><img src="/media/brizzlepuffs_logo.svg" width="8%"/></a>
+                    <img src="/media/brizzlebees_logo.svg" width="5%"/>
+                </div>
+                
+            </header>
+            
+            <!--Drawer-->
+            <div class="mdl-layout__drawer">
+                
+                <!--Drawer Title-->
+                <span class="mdl-layout__title">Brizzlepuffs</span>
+                
+                <!--Drawer Links-->
+                <nav class="mdl-navigation">
+                    <a class="mdl-navigation__link" href="news.html">News</a>
+                    <a class="mdl-navigation__link" href="squads.html">Squad</a>
+                    <a class="mdl-navigation__link" href="fixtures.html">Fixtures</a>
+                    <a class="mdl-navigation__link" href="media.html">Media</a>
+                </nav>
             </div>
-            <div class="mdl-layout__header-row">
-            <!-- Add spacer, to align navigation to the right -->
-            <div class="mdl-layout-spacer"></div>            
-            </div>
-        </header>
-        <div class="mdl-layout__drawer">
-            <span class="mdl-layout-title">Brizzlepuffs</span>
-            <nav class="mdl-navigation">
-            <a class="mdl-navigation__link" href="news.html">News</a>
-            <a class="mdl-navigation__link" href="squads.html">Squad</a>
-            <a class="mdl-navigation__link" href="fixtures.html">Fixtures</a>
-            <a class="mdl-navigation__link" href="media.html">Media</a>
-            </nav>
+            
+            <!--Content-->
+            <main class="mdl-layout__content">
+                
+            </main>
+                
         </div>
-        <main class="mdl-layout__content"> 
-        </main>
-        </div>        
+               
+        <!--Background-->
         <img src="/media/header_image.jpg" alt="Club Photo" width="100%"/>
-        
+                        
     </body>
 
 </html>

@@ -3,81 +3,89 @@
     lang="en-GB" xml:lang="en-GB"> 
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
     <link rel="stylesheet" href="https://code.getmdl.io/1.1.1/material.red-amber.min.css"/>
+    <link href="main.css" rel="stylesheet" type="text/css" />
     <script src="https://code.getmdl.io/1.1.1/material.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="main.js"></script>
+    
         
     <head> 
         <meta charset="UTF-8"/> 
         <title>Brizzlepuffs Quidditch</title> 
     </head> 
-    <body> 
-        
-        <style>
-        .demo-layout-transparent {
-        background: url('../assets/demos/transparent.jpg') center / cover;
-        }
-        .demo-layout-transparent .mdl-layout__header,
-        .demo-layout-transparent .mdl-layout__drawer-button {
-        /* This background is dark, so we set text to white. Use 87% black instead if
-            your background is light. */
-        color: white;
-        }
-        </style>
-
-        <div class="demo-layout-transparent mdl-layout mdl-js-layout">
-        <header class="mdl-layout__header mdl-layout__header--transparent">            
-            <div style="text-align:center; margin-top:30px;">
-            <img src="/media/brizzlebears_logo.svg" width="5%"/>
-            <a href="index.html"><img src="/media/brizzlepuffs_logo.svg" width="8%"/></a>
-            <img src="/media/brizzlebees_logo.svg" width="5%"/>
+    
+    <body bgcolor="#F0F0F0">
+              
+        <!--Layout-->
+        <div class="mdl-layout mdl-js-layout">
+            
+            <!--Header-->
+            <header class="mdl-layout__header mdl-layout__header--transparent mdl-layout__header--scroll">
+                
+                <!--Logos-->           
+                <div style="text-align:center; margin-top:30px;">
+                    <img src="/media/brizzlebears_logo.svg" width="5%"/>
+                    <a href="index.html"><img src="/media/brizzlepuffs_logo.svg" width="8%"/></a>
+                    <img src="/media/brizzlebees_logo.svg" width="5%"/>
+                </div>
+                
+            </header>
+            
+            <!--Drawer-->
+            <div class="mdl-layout__drawer">
+                
+                <!--Drawer Title-->
+                <span class="mdl-layout__title">Brizzlepuffs</span>
+                
+                <!--Drawer Links-->
+                <nav class="mdl-navigation">
+                    <a class="mdl-navigation__link" href="news.html">News</a>
+                    <a class="mdl-navigation__link" href="squads.html">Squad</a>
+                    <a class="mdl-navigation__link" href="fixtures.html">Fixtures</a>
+                    <a class="mdl-navigation__link" href="media.html">Media</a>
+                </nav>
             </div>
-            <div class="mdl-layout__header-row">
-            <!-- Add spacer, to align navigation to the right -->
-            <div class="mdl-layout-spacer"></div>            
-            </div>
-        </header>
-        <div class="mdl-layout__drawer">
-            <span class="mdl-layout-title">Brizzlepuffs</span>
-            <nav class="mdl-navigation">
-            <a class="mdl-navigation__link" href="news.html">News</a>
-            <a class="mdl-navigation__link" href="squads.html">Squad</a>
-            <a class="mdl-navigation__link" href="fixtures.html">Fixtures</a>
-            <a class="mdl-navigation__link" href="media.html">Media</a>
-            </nav>
+            
+            <!--Content-->
+            <main id="page" class="mdl-layout__content">                             
+                <div class="main-content">
+                    
+                    <!--News Card-->   
+                    <div class="section mdl-card mdl-shadow--2dp">
+                        <div class="mdl-card__title">
+                            <a href="news.html"><h6 id="demo" class="mdl-card__title-text section-header">News</h6></a>
+                        </div>
+                    </div>
+                    
+                    <!--Fixtures Section-->
+                    <div class="section">
+                        <div class="mdl-card__title">
+                            <a href="fixtures.html"><h6 class="section-header">Fixtures</h6></a>
+                        </div>
+                    </div>
+                    
+                    <!--Squad Section-->
+                    <div class="section">
+                        <div class="mdl-card__title">
+                            <a href="squad.html"><h6 class="section-header">Squad</h6></a>
+                        </div>
+                    </div>
+                    
+                    <!--Media Section-->
+                    <div class="section">
+                        <div class="mdl-card__title">
+                            <a href="media.html"><h6 class="section-header">Media</h6></a>
+                        </div>
+                    </div>
+                    
+                </div>                
+            </main>
+                
         </div>
-        <main class="mdl-layout__content"> 
-        </main>
-        </div>        
-        <img src="/media/header_image.jpg" alt="Club Photo" width="100%"/>
-        
-        <!-- Wide card with share menu button -->
-        <style>
-        .demo-card-wide.mdl-card {
-        width: 70%;
-        height: 400px;
-        margin-top: -50px;
-        margin-left: auto;
-        margin-right: auto;
-        }
-        .demo-card-wide > .mdl-card__title {
-        color: #fff;
-        height: 176px;
-        background: url('../assets/demos/welcome_card.jpg') center / cover;
-        }
-        .demo-card-wide > .mdl-card__menu {
-        color: #fff;
-        }
-        </style>
-          
-        <div style="text-align:center;">
-        <div class="demo-card-wide mdl-card mdl-shadow--2dp">
-        <div class="mdl-card__actions mdl-card--border">
-        </div>
-        <div class="mdl-card__menu">
-        </div>
-        <div style="text-align:left; margin-top:-25px; margin-left:20px;"> <h6>News</h6> </div>
-        </div>
-        </div>
-                         
+               
+        <!--Background-->
+        <img id="background" src="/media/header_image.jpg" alt="Club Photo" width="100%"/>
+                        
     </body>
      
 </html>
