@@ -35,19 +35,18 @@
 .horizontal-stackpanel
 {
     width: auto;
-    height: 90%;
+    height: 100%;
     white-space: nowrap;
-    margin: 20px, 10px;
+    margin: 20px;
 }
 
 .news-item
 {
     height: 100%;
     width: 300px;
-    margin-left: 30px;
     margin-right: 30px;
     padding: 0px;
-    display: inline-table;  
+    display: inline-flex;  
     position: relative;
     overflow: hidden;
 
@@ -57,8 +56,9 @@
 {
     text-align: left;
     height: 15%;
-    padding: 4%;
-    margin-top: 85%;
+    padding: 10px;
+    padding-top: 0;
+    margin-top: 82%;
     background: #202020;
     color: white;
     opacity: 0.7;
