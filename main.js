@@ -16,3 +16,11 @@ $(function()
     });
     
 });
+
+$(window).resize(function() 
+{
+    //Make the content occupy a greater proportion of the screen as it gets smaller
+    var pivotalWidth = 1600;
+    var x = Math.max((pivotalWidth - $(window).width()), 0) / pivotalWidth;        
+    $(".centered").css({"width": 70+(x*20) + "%"});       
+});
