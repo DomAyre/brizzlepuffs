@@ -71,6 +71,12 @@
     font-family: Roboto;
 }
 
+.fixture-card
+{
+    height: 320px;
+    width: 300px;
+}
+
 a
 {
 	color: transparent
