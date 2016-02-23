@@ -97,6 +97,12 @@
     background: #ffdb19;
     color: #202020;
 }
+    
+.fixture-card
+{
+    height: 320px;
+    width: 300px;
+}
 
 a
 {
