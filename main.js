@@ -32,6 +32,6 @@ function scalePage()
     
     //Set the padding size
     var paddingPercentage = (100 - contentWidth)/2;
-    var paddingPixels = (paddingPercentage/100*$(window).width());
+    var paddingPixels = (paddingPercentage/100*$(window).width())-25;
     $(".padding").css({"width": paddingPixels + "px"});  
 }

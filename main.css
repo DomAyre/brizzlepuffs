@@ -80,7 +80,7 @@
     font-family: Roboto;
 }
 
-.squad-item-label
+.squad-item-label, .fixture-item-label
 {
     position: absolute;
     margin: 0px;
@@ -107,6 +107,7 @@
 {
     height: 320px;
     width: 300px;
+    display: inline-flex;
 }
 
 .padding
