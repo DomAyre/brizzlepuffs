@@ -14,6 +14,8 @@
 .section
 {
 	height: 420px;
+    margin-top: 10px;
+    background: #F0F0F0; 
 }
 
 .section-header
