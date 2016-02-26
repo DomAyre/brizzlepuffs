@@ -1,7 +1,25 @@
+body
+{
+     background: #F0F0F0;    
+}
+
+.logos
+{
+    text-align: center;
+    margin-top: -34px;
+}
+
 .main-content 
 {
 	margin-top: 30px;
 }
+
+.first-item
+{
+    margin-left: 8px;
+}
+
+
 
 .centered
 {
@@ -62,6 +80,14 @@
     background: white;
 }
 
+.squad-card, .news-item
+{
+    background-repeat: no-repeat; 
+    background-position: center;
+    background-size: cover !important;
+    position: relative;
+}
+
 .mdl-card
 {
     background: white;
@@ -89,9 +115,18 @@
     bottom: 0%;
     text-align: center;
     color: white;
+    background: #505050;
     width: 100%;
     font-size: 14pt;
     font-family: Roboto;
+}
+
+.squad-cell
+{
+    height:320px;
+    background-position: top;
+    background-size: cover !important;
+    background-color: white !important;
 }
 
 .bears

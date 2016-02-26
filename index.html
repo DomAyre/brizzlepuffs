@@ -18,7 +18,7 @@
         
     </head>
     
-    <body bgcolor="#F0F0F0" onload="scalePage()">
+    <body>
               
         <!--Layout-->
         <div class="mdl-layout mdl-js-layout">
@@ -27,7 +27,7 @@
             <header class="mdl-layout__header mdl-layout__header--transparent mdl-layout__header--scroll">
                 
                 <!--Logos-->           
-                <div style="text-align:center; margin-top:30px;">
+                <div class="main-content logos">
                     <img src="media/brizzlebears_logo.svg" width="5%"/>
                     <a href="index.html"><img src="media/brizzlepuffs_logo.svg" width="8%"/></a>
                     <img src="media/brizzlebees_logo.svg" width="5%"/>
@@ -66,8 +66,8 @@
                             <div class="horizontal-stackpanel">
 
                                 <!--Story-->
-                                <a href="news.html" style="margin-left=20px">    
-                                    <div class="news-item mdl-card mdl-js-ripple-effect" style="background: url('media/news_image_1.jpg') center / cover;">                               
+                                <a href="news.html" class="first-item">    
+                                    <div class="news-item mdl-card mdl-js-ripple-effect" style="background: url('media/news_image_1.jpg')">                               
                                         <span class="mdl-ripple"></span>
                                         <h2 class="news-item-headline">Brizzlepuffs hit Waterstones</h2> 
                                     </div>
@@ -75,7 +75,7 @@
                                    
                                 <!--Story-->
                                 <a href="news.html">    
-                                    <div class="news-item mdl-card mdl-js-ripple-effect" style="background: url('media/news_image_2.jpg') center / cover;">                               
+                                    <div class="news-item mdl-card mdl-js-ripple-effect" style="background: url('media/news_image_2.jpg')">                               
                                         <span class="mdl-ripple"></span>
                                         <h2 class="news-item-headline">Red Bull confirms Sponsorship</h2> 
                                     </div>
@@ -83,7 +83,7 @@
                                    
                                 <!--Story-->
                                 <a href="news.html">    
-                                    <div class="news-item mdl-card mdl-js-ripple-effect" style="background: url('media/news_image_3.jpg') center / cover;">                               
+                                    <div class="news-item mdl-card mdl-js-ripple-effect" style="background: url('media/news_image_3.jpg')">                               
                                         <span class="mdl-ripple"></span>
                                         <h2 class="news-item-headline">Bears win Nando's Trophy</h2> 
                                     </div>
@@ -91,7 +91,7 @@
                                    
                                 <!--Story-->
                                 <a href="news.html">    
-                                    <div class="news-item mdl-card mdl-js-ripple-effect" style="background: url('media/news_image_4.jpg') center / cover;">                               
+                                    <div class="news-item mdl-card mdl-js-ripple-effect" style="background: url('media/news_image_4.jpg')">                               
                                         <span class="mdl-ripple"></span>
                                         <h2 class="news-item-headline">Recruitment drive at UWE</h2> 
                                     </div>
@@ -135,12 +135,11 @@
                             <div class="horizontal-stackpanel">
                                 
                                 <!--Padding-->
-                                <div class="padding">
-                                </div>
+                                <div class="padding"></div>
                                 
                                 <!--Squad Item-->
                                 <a class="squad-item" href="squads.html">    
-                                    <div class="mdl-card mdl-shadow--2dp mdl-js-ripple-effect" style="background: url('media/players/Tom.png') top / cover; background-repeat: no-repeat; position: relative;">  
+                                    <div class="squad-card mdl-card mdl-shadow--2dp mdl-js-ripple-effect" style="background: url('media/players/Tom.png');">  
                                         <span class="mdl-ripple"></span>
                                         <h2 class="squad-item-label bears">Tom Ower</h2> 
                                     </div>
@@ -148,7 +147,7 @@
                                 
                                 <!--Squad Item-->
                                 <a class="squad-item" href="squads.html">    
-                                    <div class="mdl-card mdl-shadow--2dp mdl-js-ripple-effect" style="background: url('media/players/Matty.png') top / cover; background-repeat: no-repeat; position: relative;">  
+                                    <div class="squad-card mdl-card mdl-shadow--2dp mdl-js-ripple-effect" style="background: url('media/players/Matty.png');">  
                                         <span class="mdl-ripple"></span>
                                         <h2 class="squad-item-label bees">Mathilda Rose</h2> 
                                     </div>
@@ -156,7 +155,7 @@
                                 
                                 <!--Squad Item-->
                                 <a class="squad-item" href="squads.html">    
-                                    <div class="mdl-card mdl-shadow--2dp mdl-js-ripple-effect" style="background: url('media/players/Luke.png') top / cover; background-repeat: no-repeat; position: relative;">  
+                                    <div class="squad-card mdl-card mdl-shadow--2dp mdl-js-ripple-effect" style="background: url('media/players/Luke.png');">  
                                         <span class="mdl-ripple"></span>
                                         <h2 class="squad-item-label bears">Luke Stevens</h2> 
                                     </div>
@@ -164,7 +163,7 @@
                                 
                                 <!--Squad Item-->
                                 <a class="squad-item" href="squads.html">    
-                                    <div class="mdl-card mdl-shadow--2dp mdl-js-ripple-effect" style="background: url('media/players/Steve.png') top / cover; background-repeat: no-repeat; position: relative;">  
+                                    <div class="squad-card mdl-card mdl-shadow--2dp mdl-js-ripple-effect" style="background: url('media/players/Steve.png');">  
                                         <span class="mdl-ripple"></span>
                                         <h2 class="squad-item-label bears">Stephen Fung</h2> 
                                     </div>
@@ -172,7 +171,7 @@
                                 
                                 <!--Squad Item-->
                                 <a class="squad-item" href="squads.html">    
-                                    <div class="mdl-card mdl-shadow--2dp mdl-js-ripple-effect" style="background: url('media/players/Nuge.png') top / cover; background-repeat: no-repeat; position: relative;">  
+                                    <div class="squad-card mdl-card mdl-shadow--2dp mdl-js-ripple-effect" style="background: url('media/players/Nuge.png');">  
                                         <span class="mdl-ripple"></span>
                                         <h2 class="squad-item-label bears">Matthew Nugent</h2> 
                                     </div>
@@ -180,7 +179,7 @@
                                 
                                 <!--Squad Item-->
                                 <a class="squad-item" href="squads.html">    
-                                    <div class="mdl-card mdl-shadow--2dp mdl-js-ripple-effect" style="background: url('media/players/Alistair.png') top / cover; background-repeat: no-repeat; position: relative;">  
+                                    <div class="squad-card mdl-card mdl-shadow--2dp mdl-js-ripple-effect" style="background: url('media/players/Alistair.png');">  
                                         <span class="mdl-ripple"></span>
                                         <h2 class="squad-item-label bears">Alistair Goodwin</h2> 
                                     </div>
@@ -188,7 +187,7 @@
                                 
                                 <!--Squad Item-->
                                 <a class="squad-item" href="squads.html">    
-                                    <div class="mdl-card mdl-shadow--2dp mdl-js-ripple-effect" style="background: url('media/players/Tom.png') top / cover; background-repeat: no-repeat; position: relative;">  
+                                    <div class="squad-card mdl-card mdl-shadow--2dp mdl-js-ripple-effect" style="background: url('media/players/Tom.png');">  
                                         <span class="mdl-ripple"></span>
                                         <h2 class="squad-item-label bears">Tom Ower</h2> 
                                     </div>
@@ -196,7 +195,7 @@
                                 
                                 <!--Squad Item-->
                                 <a class="squad-item" href="squads.html">    
-                                    <div class="mdl-card mdl-shadow--2dp mdl-js-ripple-effect" style="background: url('media/players/Matty.png') top / cover; background-repeat: no-repeat; position: relative;">  
+                                    <div class="squad-card mdl-card mdl-shadow--2dp mdl-js-ripple-effect" style="background: url('media/players/Matty.png');">  
                                         <span class="mdl-ripple"></span>
                                         <h2 class="squad-item-label bees">Mathilda Rose</h2> 
                                     </div>
@@ -204,7 +203,7 @@
                                 
                                 <!--Squad Item-->
                                 <a class="squad-item" href="squads.html">    
-                                    <div class="mdl-card mdl-shadow--2dp mdl-js-ripple-effect" style="background: url('media/players/Luke.png') top / cover; background-repeat: no-repeat; position: relative;">  
+                                    <div class="squad-card mdl-card mdl-shadow--2dp mdl-js-ripple-effect" style="background: url('media/players/Luke.png');">  
                                         <span class="mdl-ripple"></span>
                                         <h2 class="squad-item-label bears">Luke Stevens</h2> 
                                     </div>
@@ -212,7 +211,7 @@
                                 
                                 <!--Squad Item-->
                                 <a class="squad-item" href="squads.html">    
-                                    <div class="mdl-card mdl-shadow--2dp mdl-js-ripple-effect" style="background: url('media/players/Steve.png') top / cover; background-repeat: no-repeat; position: relative;">  
+                                    <div class="squad-card mdl-card mdl-shadow--2dp mdl-js-ripple-effect" style="background: url('media/players/Steve.png');">  
                                         <span class="mdl-ripple"></span>
                                         <h2 class="squad-item-label bears">Stephen Fung</h2> 
                                     </div>
@@ -220,7 +219,7 @@
                                 
                                 <!--Squad Item-->
                                 <a class="squad-item" href="squads.html">    
-                                    <div class="mdl-card mdl-shadow--2dp mdl-js-ripple-effect" style="background: url('media/players/Nuge.png') top / cover; background-repeat: no-repeat; position: relative;">  
+                                    <div class="squad-card mdl-card mdl-shadow--2dp mdl-js-ripple-effect" style="background: url('media/players/Nuge.png');">  
                                         <span class="mdl-ripple"></span>
                                         <h2 class="squad-item-label bears">Matthew Nugent</h2> 
                                     </div>
@@ -228,7 +227,7 @@
                                 
                                 <!--Squad Item-->
                                 <a class="squad-item" href="squads.html">    
-                                    <div class="mdl-card mdl-shadow--2dp mdl-js-ripple-effect" style="background: url('media/players/Alistair.png') top / cover; background-repeat: no-repeat; position: relative;">  
+                                    <div class="squad-card mdl-card mdl-shadow--2dp mdl-js-ripple-effect" style="background: url('media/players/Alistair.png');">  
                                         <span class="mdl-ripple"></span>
                                         <h2 class="squad-item-label bears">Alistair Goodwin</h2> 
                                     </div>
@@ -236,7 +235,7 @@
                                 
                                 <!--Squad Item-->
                                 <a class="squad-item" href="squads.html">    
-                                    <div class="mdl-card mdl-shadow--2dp mdl-js-ripple-effect" style="background: url('media/players/Tom.png') top / cover; background-repeat: no-repeat; position: relative;">  
+                                    <div class="squad-card mdl-card mdl-shadow--2dp mdl-js-ripple-effect" style="background: url('media/players/Tom.png');">  
                                         <span class="mdl-ripple"></span>
                                         <h2 class="squad-item-label bears">Tom Ower</h2> 
                                     </div>
@@ -244,7 +243,7 @@
                                 
                                 <!--Squad Item-->
                                 <a class="squad-item" href="squads.html">    
-                                    <div class="mdl-card mdl-shadow--2dp mdl-js-ripple-effect" style="background: url('media/players/Matty.png') top / cover; background-repeat: no-repeat; position: relative;">  
+                                    <div class="squad-card mdl-card mdl-shadow--2dp mdl-js-ripple-effect" style="background: url('media/players/Matty.png');">  
                                         <span class="mdl-ripple"></span>
                                         <h2 class="squad-item-label bees">Mathilda Rose</h2> 
                                     </div>
@@ -252,7 +251,7 @@
                                 
                                 <!--Squad Item-->
                                 <a class="squad-item" href="squads.html">    
-                                    <div class="mdl-card mdl-shadow--2dp mdl-js-ripple-effect" style="background: url('media/players/Luke.png') top / cover; background-repeat: no-repeat; position: relative;">  
+                                    <div class="squad-card mdl-card mdl-shadow--2dp mdl-js-ripple-effect" style="background: url('media/players/Luke.png');">  
                                         <span class="mdl-ripple"></span>
                                         <h2 class="squad-item-label bears">Luke Stevens</h2> 
                                     </div>
@@ -260,7 +259,7 @@
                                 
                                 <!--Squad Item-->
                                 <a class="squad-item" href="squads.html">    
-                                    <div class="mdl-card mdl-shadow--2dp mdl-js-ripple-effect" style="background: url('media/players/Steve.png') top / cover; background-repeat: no-repeat; position: relative;">  
+                                    <div class="squad-card mdl-card mdl-shadow--2dp mdl-js-ripple-effect" style="background: url('media/players/Steve.png');">  
                                         <span class="mdl-ripple"></span>
                                         <h2 class="squad-item-label bears">Stephen Fung</h2> 
                                     </div>
@@ -268,7 +267,7 @@
                                 
                                 <!--Squad Item-->
                                 <a class="squad-item" href="squads.html">    
-                                    <div class="mdl-card mdl-shadow--2dp mdl-js-ripple-effect" style="background: url('media/players/Nuge.png') top / cover; background-repeat: no-repeat; position: relative;">  
+                                    <div class="squad-card mdl-card mdl-shadow--2dp mdl-js-ripple-effect" style="background: url('media/players/Nuge.png');">  
                                         <span class="mdl-ripple"></span>
                                         <h2 class="squad-item-label bears">Matthew Nugent</h2> 
                                     </div>
@@ -276,7 +275,7 @@
                                 
                                 <!--Squad Item-->
                                 <a class="squad-item" href="squads.html">    
-                                    <div class="mdl-card mdl-shadow--2dp mdl-js-ripple-effect" style="background: url('media/players/Alistair.png') top / cover; background-repeat: no-repeat; position: relative;">  
+                                    <div class="squad-card mdl-card mdl-shadow--2dp mdl-js-ripple-effect" style="background: url('media/players/Alistair.png');">  
                                         <span class="mdl-ripple"></span>
                                         <h2 class="squad-item-label bears">Alistair Goodwin</h2> 
                                     </div>
@@ -284,7 +283,7 @@
                                 
                                 <!--Squad Item-->
                                 <a class="squad-item" href="squads.html">    
-                                    <div class="mdl-card mdl-shadow--2dp mdl-js-ripple-effect" style="background: url('media/players/Tom.png') top / cover; background-repeat: no-repeat; position: relative;">  
+                                    <div class="squad-card mdl-card mdl-shadow--2dp mdl-js-ripple-effect" style="background: url('media/players/Tom.png');">  
                                         <span class="mdl-ripple"></span>
                                         <h2 class="squad-item-label bears">Tom Ower</h2> 
                                     </div>
@@ -292,7 +291,7 @@
                                 
                                 <!--Squad Item-->
                                 <a class="squad-item" href="squads.html">    
-                                    <div class="mdl-card mdl-shadow--2dp mdl-js-ripple-effect" style="background: url('media/players/Matty.png') top / cover; background-repeat: no-repeat; position: relative;">  
+                                    <div class="squad-card mdl-card mdl-shadow--2dp mdl-js-ripple-effect" style="background: url('media/players/Matty.png');">  
                                         <span class="mdl-ripple"></span>
                                         <h2 class="squad-item-label bees">Mathilda Rose</h2> 
                                     </div>
@@ -300,7 +299,7 @@
                                 
                                 <!--Squad Item-->
                                 <a class="squad-item" href="squads.html">    
-                                    <div class="mdl-card mdl-shadow--2dp mdl-js-ripple-effect" style="background: url('media/players/Luke.png') top / cover; background-repeat: no-repeat; position: relative;">  
+                                    <div class="squad-card mdl-card mdl-shadow--2dp mdl-js-ripple-effect" style="background: url('media/players/Luke.png');">  
                                         <span class="mdl-ripple"></span>
                                         <h2 class="squad-item-label bears">Luke Stevens</h2> 
                                     </div>
@@ -308,7 +307,7 @@
                                 
                                 <!--Squad Item-->
                                 <a class="squad-item" href="squads.html">    
-                                    <div class="mdl-card mdl-shadow--2dp mdl-js-ripple-effect" style="background: url('media/players/Steve.png') top / cover; background-repeat: no-repeat; position: relative;">  
+                                    <div class="squad-card mdl-card mdl-shadow--2dp mdl-js-ripple-effect" style="background: url('media/players/Steve.png');">  
                                         <span class="mdl-ripple"></span>
                                         <h2 class="squad-item-label bears">Stephen Fung</h2> 
                                     </div>
@@ -316,7 +315,7 @@
                                 
                                 <!--Squad Item-->
                                 <a class="squad-item" href="squads.html">    
-                                    <div class="mdl-card mdl-shadow--2dp mdl-js-ripple-effect" style="background: url('media/players/Nuge.png') top / cover; background-repeat: no-repeat; position: relative;">  
+                                    <div class="squad-card mdl-card mdl-shadow--2dp mdl-js-ripple-effect" style="background: url('media/players/Nuge.png');">  
                                         <span class="mdl-ripple"></span>
                                         <h2 class="squad-item-label bears">Matthew Nugent</h2> 
                                     </div>
@@ -324,15 +323,14 @@
                                 
                                 <!--Squad Item-->
                                 <a class="squad-item" href="squads.html">    
-                                    <div class="mdl-card mdl-shadow--2dp mdl-js-ripple-effect" style="background: url('media/players/Alistair.png') top / cover; background-repeat: no-repeat; position: relative;">  
+                                    <div class="squad-card mdl-card mdl-shadow--2dp mdl-js-ripple-effect" style="background: url('media/players/Alistair.png');">  
                                         <span class="mdl-ripple"></span>
                                         <h2 class="squad-item-label bears">Alistair Goodwin</h2> 
                                     </div>
                                 </a>
                                 
                                 <!--Padding-->
-                                <div class="padding" style="height:100%; display:inline-flex;">
-                                </div>
+                                <div class="padding"></div>
                                 
                             </div>
                             
