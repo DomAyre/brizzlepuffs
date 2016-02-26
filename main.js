@@ -1,37 +1,56 @@
-$(function() 
-{    
-    // Get the objects that receive scroll value
-    var layout = $(".mdl-layout");
-    var content = $(".mdl-layout__content");
-    
-    //Define the scrolling for both versions of the layout
-    $(layout).scroll(function() 
-    {
-		$("#background").css({"margin-top": (-$(layout).scrollTop()/2) + "px"});        
-    });
-    
-    $(content).scroll(function() 
-    {
-		$("#background").css({"margin-top": (-$(content).scrollTop()/2) + "px"});        
-    });
-    
-});
+"use strict";
+addEventListener("load", start);
 
-$(window).resize(function() 
+function start()
 {
+    //Scale the page
     scalePage();
-});
+    
+    //Set the listener to scale page if window is resized
+    window.addEventListener("resize", scalePage);
+    
+    // //Set scroll listeners for the two modes of the page
+    var layout = document.querySelector(".mdl-layout"), content = document.querySelector(".mdl-layout__content");
+    layout.addEventListener("scroll", scrollBackground);
+    content.addEventListener("scroll", scrollBackground);    
+}
+
+function scrollBackground(event)
+{   
+    //Get the layout
+    var layout = event.target;
+    
+    //Get the background
+    var background = document.querySelector("#background");
+    
+    //Scroll the background
+    background.style.marginTop = (-(layout.scrollTop)/2) + "px";
+}
 
 function scalePage()
-{
-    //Make the content occupy a greater proportion of the screen as it gets smaller
-    var pivotalWidth = 1600;
-    var x = Math.max((pivotalWidth - $(window).width()), 0) / pivotalWidth;  
-    var contentWidth = 70+(x*20);      
-    $(".centered").css({"width": contentWidth + "%"});       
+{    
+    //Define the max window width and the min/max content proportion
+    var maxWindowWidth = 1600, minContentPerc = 70, maxContentPerc = 90;
+    var diffContentPerc = maxContentPerc - minContentPerc;
     
-    //Set the padding size
-    var paddingPercentage = (100 - contentWidth)/2;
-    var paddingPixels = (paddingPercentage/100*$(window).width())-25;
-    $(".padding").css({"width": paddingPixels + "px"});  
+    //Work out the proportion of the max width the window is
+    var windowWidthPercentage = Math.max(maxWindowWidth - window.innerWidth, 0) / maxWindowWidth;
+        
+    //Work out what proportion of the screen content should occupy at the given size
+    var contentWidthPercentage = minContentPerc + (diffContentPerc * windowWidthPercentage);
+    var contentWidthPixels = contentWidthPercentage/100 * window.innerWidth;
+    
+    //Find all elements which are centered and set their width
+    var centeredElements = document.querySelectorAll(".centered");
+    for (var i = 0; i < centeredElements.length; i++)
+    {
+        centeredElements[i].style.width = contentWidthPercentage + "%";
+    }
+    
+    //Set the width of all padding elements
+    var paddingElements = document.querySelectorAll(".padding");
+    for (var i = 0; i < paddingElements.length; i++)
+    {
+        paddingElements[i].style.width = (window.innerWidth - contentWidthPixels)/2 - 25 + "px";
+    }
 }
