@@ -3,11 +3,6 @@ body
      background: #F0F0F0;    
 }
 
-.mdl-layout__content
-{
-    flex-shrink: 0;
-}
-
 .logos
 {
     text-align: center;
