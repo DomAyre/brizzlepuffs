@@ -19,6 +19,12 @@ body
     margin-left: 8px;
 }
 
+.main-card
+{
+    width:100%; 
+    margin-bottom:50px;
+}
+
 .centered
 {
     width: 70%;
@@ -108,10 +114,11 @@ body
 
 .player-details-photo
 {
-    width: 80%; 
+    width: 100%; 
     height: auto; 
-    padding: 20px;
+    padding: 0px;
     overflow: hidden;
+    max-height:400px;
 }
 
 .squad-item-label, .fixture-item-label
