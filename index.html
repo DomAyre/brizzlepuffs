@@ -3,6 +3,7 @@
     lang="en-GB" xml:lang="en-GB">
     <script src="https://code.getmdl.io/1.1.1/material.min.js"></script>
     <script src="main.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
   
     <head>
         
@@ -56,16 +57,16 @@
                 <div class="main-content">
                     
                     <!--News Card-->   
-                    <div class="section centered mdl-card mdl-shadow--2dp">
+                    <div class="news section centered mdl-card mdl-shadow--2dp">
                         <div class="mdl-card__title">
                             <a href="news.html"><h6 id="demo" class="mdl-card__title-text section-header">News</h6></a>
                         </div>
-                                    
-                        <div class="horizontal-scrollviewer">
+                                 
+                        <div id="news-scrollviewer" class="horizontal-scrollviewer">
                             <div class="horizontal-stackpanel">
 
                                 <!--Story-->
-                                <a href="news.html" class="first-item">    
+                                <a id="news_1" href="news.html" class="first-item">    
                                     <div class="news-item mdl-card mdl-js-ripple-effect" style="background: url('media/news_image_1.jpg')">                               
                                         <span class="mdl-ripple"></span>
                                         <h2 class="news-item-headline">Brizzlepuffs hit Waterstones</h2> 
@@ -73,7 +74,7 @@
                                 </a>
                                    
                                 <!--Story-->
-                                <a href="news.html">    
+                                <a id="news_2" href="news.html">    
                                     <div class="news-item mdl-card mdl-js-ripple-effect" style="background: url('media/news_image_2.jpg')">                               
                                         <span class="mdl-ripple"></span>
                                         <h2 class="news-item-headline">Red Bull confirms Sponsorship</h2> 
@@ -81,7 +82,7 @@
                                 </a>
                                    
                                 <!--Story-->
-                                <a href="news.html">    
+                                <a id="news_3" href="news.html">    
                                     <div class="news-item mdl-card mdl-js-ripple-effect" style="background: url('media/news_image_3.jpg')">                               
                                         <span class="mdl-ripple"></span>
                                         <h2 class="news-item-headline">Bears win Nando's Trophy</h2> 
@@ -89,15 +90,21 @@
                                 </a>
                                    
                                 <!--Story-->
-                                <a href="news.html">    
+                                <a id="news_4" href="news.html">    
                                     <div class="news-item mdl-card mdl-js-ripple-effect" style="background: url('media/news_image_4.jpg')">                               
                                         <span class="mdl-ripple"></span>
                                         <h2 class="news-item-headline">Recruitment drive at UWE</h2> 
                                     </div>
                                 </a>
                                 
-                            </div>
+                            </div>                            
                         </div>
+                        
+                        <!-- Colored FAB button with ripple -->
+                        <button name="news" class="horizontal-button mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+                            <i class="material-icons">keyboard_arrow_right</i>
+                        </button>
+                          
                     </div>
                     
                     <!--Fixtures Section-->
@@ -130,7 +137,7 @@
                             <a href="squads.html"><h6 class="section-header">Squad</h6></a>
                         </div>
                         
-                        <div class="horizontal-scrollviewer">
+                        <div id="squad-scrollviewer" class="horizontal-scrollviewer">
                             <div class="horizontal-stackpanel">
                                 
                                 <!--Padding-->
@@ -331,9 +338,14 @@
                                 <!--Padding-->
                                 <div class="padding"></div>
                                 
-                            </div>
-                            
+                            </div>                            
                         </div>
+                        
+                        <!-- Colored FAB button with ripple -->
+                        <button name="squad" class="horizontal-button mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+                            <i class="material-icons">keyboard_arrow_right</i>
+                        </button>
+                        
                     </div>
                     
                     <!--Media Section-->

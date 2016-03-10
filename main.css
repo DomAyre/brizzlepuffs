@@ -38,6 +38,18 @@ body
 	height: 420px;
     margin-top: 10px;
     background: #F0F0F0; 
+    position: relative;
+}
+
+.horizontal-button
+{
+    top: 50%;
+    position: absolute;
+    float: right;
+    right: 5%;
+    z-index: 2;
+    background-color: red !important;
+    color: white !important;
 }
 
 .section-header

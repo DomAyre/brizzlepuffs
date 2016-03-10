@@ -9,10 +9,37 @@ function start()
     //Set the listener to scale page if window is resized
     window.addEventListener("resize", scalePage);
     
-    // //Set scroll listeners for the two modes of the page
+    //Set scroll listeners for the two modes of the page
     var layout = document.querySelector(".mdl-layout"), content = document.querySelector(".mdl-layout__content");
     layout.addEventListener("scroll", scrollBackground);
-    content.addEventListener("scroll", scrollBackground);    
+    content.addEventListener("scroll", scrollBackground); 
+    
+    //Set click listener for scroll buttons
+    var scrollButtons = document.querySelectorAll(".horizontal-button");
+    for (var i = 0; i < scrollButtons.length; i++)
+    {
+        scrollButtons[i].addEventListener("click", scrollForwards);
+    }   
+}
+
+function scrollForwards(event)
+{
+    //Construct the scrollviewer name
+    var scrollName = "#" + event.target.parentElement.name + "-scrollviewer";
+    var itemName = "." + event.target.parentElement.name + "-item";
+        
+    //Get the parent of the button
+    var parent = document.querySelector(scrollName);
+    
+    //Work out how much to scroll by
+    var scrollAmount = $(itemName).outerWidth() + 34;
+    
+    //Scroll appropriately
+    $('html, ' + scrollName).animate(
+    {
+        scrollLeft: parent.scrollLeft + scrollAmount
+    }, 250);
+
 }
 
 function scrollBackground(event)
