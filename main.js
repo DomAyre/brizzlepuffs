@@ -1,5 +1,6 @@
 "use strict";
 addEventListener("load", start);
+var buttonsClicked = false;
 
 function start()
 {
@@ -44,11 +45,17 @@ function scrolling(event)
     //Get which buttons to check for
     var type = event.target.id.split("-")[0];
     
+    if (buttonsClicked == false)
+    {
+        showHideButtons("news", ".horizontal-button", "Hidden");
+        showHideButtons("squad", ".horizontal-button", "Hidden");
+        return;
+    }
+    
     //If you're at the start
     if(event.target.scrollLeft <= 0) showHideButtons(type, ".backwards", "Hidden");
     else showHideButtons(type, ".backwards", "Visible");
-    
-    
+        
     //If you're at the end
     if($(event.target.children[0]).innerWidth() - $(event.target).innerWidth() - event.target.scrollLeft <= 0) showHideButtons(type, ".forwards", "Hidden");
     else showHideButtons(type, ".forwards", "Visible");
@@ -56,6 +63,9 @@ function scrolling(event)
 
 function scrollHorizontally(event)
 {
+    //Set that the buttons have been used
+    buttonsClicked = true;
+    
     //Construct the scrollviewer name
     var scrollName = "#" + event.target.parentElement.name + "-scrollviewer";
     var itemName = "." + event.target.parentElement.name + "-item";
@@ -75,7 +85,6 @@ function scrollHorizontally(event)
     {
         scrollLeft: parent.scrollLeft + scrollAmount
     }, 250);
-
 }
 
 function scrollBackground(event)
