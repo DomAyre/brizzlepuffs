@@ -18,11 +18,43 @@ function start()
     var scrollButtons = document.querySelectorAll(".horizontal-button");
     for (var i = 0; i < scrollButtons.length; i++)
     {
-        scrollButtons[i].addEventListener("click", scrollForwards);
+        scrollButtons[i].addEventListener("click", scrollHorizontally);
     }   
+    
+    //Add scroll listeners to show/hide the buttons
+    var scrollViewers = document.querySelectorAll(".horizontal-scrollviewer");
+    for (var i = 0; i < scrollViewers.length; i++)
+    {
+        scrollViewers[i].addEventListener("scroll", scrolling);
+    }
 }
 
-function scrollForwards(event)
+function showHideButtons(type, buttons, visbility)
+{
+    var hiddenButtons = document.querySelectorAll("input[name=" + type + "], " + buttons);
+    for (var i = 0; i < hiddenButtons.length; i++)
+    {
+        if (hiddenButtons[i].name == type)
+            hiddenButtons[i].style.visibility = visbility;   
+    }
+}
+
+function scrolling(event)
+{    
+    //Get which buttons to check for
+    var type = event.target.id.split("-")[0];
+    
+    //If you're at the start
+    if(event.target.scrollLeft <= 0) showHideButtons(type, ".backwards", "Hidden");
+    else showHideButtons(type, ".backwards", "Visible");
+    
+    
+    //If you're at the end
+    if($(event.target.children[0]).innerWidth() - $(event.target).innerWidth() - event.target.scrollLeft <= 0) showHideButtons(type, ".forwards", "Hidden");
+    else showHideButtons(type, ".forwards", "Visible");
+}
+
+function scrollHorizontally(event)
 {
     //Construct the scrollviewer name
     var scrollName = "#" + event.target.parentElement.name + "-scrollviewer";
@@ -32,7 +64,11 @@ function scrollForwards(event)
     var parent = document.querySelector(scrollName);
     
     //Work out how much to scroll by
-    var scrollAmount = $(itemName).outerWidth() + 34;
+    var scrollAmount = $(parent).outerWidth() * 0.6;
+    
+    //Check if you should scroll backwards
+    if ($(event.target.parentElement).hasClass("backwards"))
+        scrollAmount *= -1;    
     
     //Scroll appropriately
     $('html, ' + scrollName).animate(
