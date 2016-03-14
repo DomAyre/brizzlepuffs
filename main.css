@@ -3,6 +3,15 @@ body
      background: #F0F0F0;    
 }
 
+#background
+{
+    background-image: url("media/header_image.jpg"); 
+    width: 100% ;
+    alt: "Club Photo";
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .logos
 {
     text-align: center;

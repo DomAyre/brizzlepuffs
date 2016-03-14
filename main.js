@@ -89,14 +89,11 @@ function scrollHorizontally(event)
 
 function scrollBackground(event)
 {   
-    //Get the layout
-    var layout = event.target;
-    
-    //Get the background
-    var background = document.querySelector("#background");
+    //Get the amount that has been scrolled
+    var scrolled = event.target.scrollTop + 1;
     
     //Scroll the background
-    background.style.marginTop = (-(layout.scrollTop)/2) + "px";
+    $("#background").css("background-position", "0" + -(scrolled * 0.5) + "px");
 }
 
 function scalePage()
@@ -125,4 +122,8 @@ function scalePage()
     {
         paddingElements[i].style.width = (window.innerWidth - contentWidthPixels)/2 - 25 + "px";
     }
+    
+    //Set the height of the background
+    var background = document.querySelector("#background");
+    background.style.height = $("#background").innerWidth() / 5.12 + "px";
 }
