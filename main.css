@@ -6,8 +6,22 @@ body
 #background
 {
     background-image: url("media/header_image.jpg"); 
+    alt: "Club Photo";    
+}
+
+#player-background
+{
+    background-image: url("media/player_background.jpg"); 
+    alt: "Player Background";
+    position: absolute;
+    top: 0px;
+    bottom:0px;  
+    background-position-x: center;
+}
+
+.background
+{
     width: 100% ;
-    alt: "Club Photo";
     background-repeat: no-repeat;
     background-size: cover;
 }

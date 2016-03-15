@@ -93,7 +93,7 @@ function scrollBackground(event)
     var scrolled = event.target.scrollTop + 1;
     
     //Scroll the background
-    $("#background").css("background-position", "0" + -(scrolled * 0.5) + "px");
+    $(".background").css("background-position", "0" + -(scrolled * 0.3) + "px");
 }
 
 function scalePage()
@@ -125,5 +125,5 @@ function scalePage()
     
     //Set the height of the background
     var background = document.querySelector("#background");
-    background.style.height = $("#background").innerWidth() / 5.12 + "px";
+    if (background != null) background.style.height = $("#background").innerWidth() / 5.12 + "px";
 }
