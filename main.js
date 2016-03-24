@@ -47,7 +47,6 @@ function scrolling(event)
     
     if (buttonsClicked == false)
     {
-        showHideButtons("news", ".horizontal-button", "Hidden");
         showHideButtons("squad", ".horizontal-button", "Hidden");
         return;
     }
