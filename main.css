@@ -225,10 +225,8 @@ body
 }
 
 /*Specific formatting for if its in a scrollviewer or a grid*/
-.horizontal-stackpanel > .fixture-item
-{
-    width: 300px !important;
-}
+.horizontal-stackpanel > .fixture-item { width: 300px !important; }
+.horizontal-stackpanel > .media-item { width: 605px !important; }
 .horizontal-stackpanel > a, .horizontal-stackpanel > .media-item
 {
     margin-right: 30px;
@@ -238,6 +236,7 @@ body
 }
 .mdl-grid > .squad-item { height: 300px; }
 .mdl-grid > .fixture-item { height: 340px; }
+.mdl-grid > .media-item { height: 370px; }
 
 .fixture-item > div
 {
@@ -317,8 +316,6 @@ body
     color: white;
     background: #505050;
 }
-
-.media-item { width: 605px !important; }
 
 .video
 {
