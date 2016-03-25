@@ -119,7 +119,7 @@ function scalePage()
     var paddingElements = document.querySelectorAll(".padding");
     for (var i = 0; i < paddingElements.length; i++)
     {
-        paddingElements[i].style.width = (window.innerWidth - contentWidthPixels)/2 - 25 + "px";
+        paddingElements[i].style.width = (window.innerWidth - contentWidthPixels)/2 - 35 + "px";
     }
     
     //Set the height of the background

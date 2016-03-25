@@ -1,58 +1,107 @@
+/*Set the background of all pages to nearly white*/
 body
 {
      background: #F0F0F0;    
 }
 
+/*Anything relating to the brizzlebears*/
+.bears
+{
+    background: #be0000 !important;
+}
+
+/*Anything relating to the brizzlebees*/
+.bees
+{
+    background: #ffdb19 !important;
+    color: #202020 !important;
+}
+
+.fixture
+{
+    background: #01579B !important;
+}
+
+.media
+{
+    background: #4CAF50 !important;
+}
+ 
+/*Set the background image*/
 #background
 {
     background-image: url("media/header_image.jpg"); 
     alt: "Club Photo";    
 }
 
+/*Set the player background TO BE REPLACED WITH BACKEND*/
 #player-background
 {
     background-image: url("media/player_background.jpg"); 
     alt: "Player Background";
+}
+
+/*Define a background which fills the whole page*/
+.full-bleed
+{    
     position: absolute;
     top: 0px;
     bottom:0px;  
     background-position-x: center;
 }
 
-.mdl-grid
-{
-    margin:0;
-}
-
+/*Define a full width background*/
 .background
 {
-    width: 100% ;
+    width: 100%;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
+/*Make grids fill their parents*/
+.mdl-grid
+{
+    margin: 0px 0px 15px 0px;
+    padding: 0;
+}
+
+/*Make cards white*/
+.mdl-card
+{
+    background-color: white !important;
+}
+.mdl-card--actions
+{
+    height: 10%;
+}
+
+/*Format the club and team logos*/
 .logos
 {
     text-align: center;
     margin-top: -34px;
 }
 
+/*All main content starts with a small space*/
 .main-content 
 {
 	margin-top: 30px;
 }
 
+/*The first item of a horzontal scroller has a space at the start*/
 .first-item
 {
     margin-left: 8px;
 }
 
+/*A single card page where the card contains all content*/
 .main-card
 {
     width:100%; 
     margin-bottom:50px;
 }
 
+/*Centers a piece of content*/
 .centered
 {
     width: 70%;
@@ -61,14 +110,42 @@ body
 	text-align: center;
 }
 
+/*One of the summary sections on the main page*/
 .section
 {
 	height: 420px;
-    margin-top: 10px;
+    margin-top: 30px;
+    padding: 0px 12px 0px 12px;
     background: #F0F0F0; 
     position: relative;
+    overflow: hidden;
 }
 
+/*The header for one of the main pages summary sections*/
+.section-header
+{    
+    display: flex;
+    height: 15%;
+    width: 100%;
+}
+.section-header > h6
+{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    color: #606060;    
+	font-size: 14pt;
+	font-weight: 500;
+	margin-left: 6px;
+}
+.section-content
+{
+    height: 85%;
+}
+
+.news { height: auto; } .news > .section-header { height: 50px; }
+
+/*A button to let the user click to scroll left or right*/
 .horizontal-button
 {
     top: 50%;
@@ -78,12 +155,14 @@ body
     color: white !important;
 }
 
+/*An arrow which points forwards*/
 .forwards
 {    
     float: right;
     right: 5%;
 }
 
+/*An arrow which points backwards*/
 .backwards
 {  
     visibility: hidden;  
@@ -91,127 +170,103 @@ body
     left: 5%;
 }
 
-.section-header
-{
-	color: #606060;
-	font-size: 14pt;
-	font-weight: 500;
-	margin-left: 6px;
-	margin-top: 8px;
-}
-
+/*A container in which content only scrolls horizontally*/
 .horizontal-scrollviewer
 {
     position: relative;
     overflow-x:scroll;
     overflow-y:hidden;
     width: 100%;
-    height: 90%;
+    height: 100%;
+    padding-bottom: 26px;
 }
 
+/*A container in which content stacks horizontally (The inner div of a scrollviewer)*/
 .horizontal-stackpanel
 {
-    position: absolute;
-    top: 5%;
-    bottom: 5%;
+    height: 100%;
     padding-left: 18px;
     white-space: nowrap;
 }
 
-.news-item
+/*Any header for an item which is at the bottom of the item*/
+.item-header
 {
-    height: 100%;
-    min-width: 400px;
-    margin-right: 30px;
-    padding: 0px;
-    display: inline-flex; 
+    position: absolute;
+    bottom: 0;
+    z-index: 2;
+    line-height: 30px;
+    width: 90%;
+    font-size: 14pt;
+    font-family: Roboto;
+    padding: 3% 5% 3% 5%;
+    margin: 0;
 }
 
-.squad-item
-{
-    height: 100%;
-    width: 200px;
-    padding: 0px;
-    margin-right: 30px;
-    display: inline-flex; 
-    background: white;
-}
-
-.squad-card, .news-item
-{
-    background-repeat: no-repeat; 
-    background-position: center;
-    background-size: cover !important;
-    position: relative;
-}
-
-.mdl-card
-{
-    background: white;
-}
-
-.news-item-headline
+/*The headline of a news item*/
+.news-item > h2, .fixture-item > h2
 {
     text-align: left;
-    height: auto;
-    padding-left: 2vw;
-    margin-top: auto;
-    margin-bottom: 0px;
     background: #202020;
     color: white;
     opacity: 0.7;
-    width: 100%;
-    font-size: 14pt;
-    font-family: Roboto;
 }
 
-.player-details-photo
+/*An item containing a player*/
+.squad-item, .fixture-item
 {
-    width: 100%; 
-    height: auto; 
+    display: inline-flex; 
+    flex-direction: row;
+    background: white;
+    position: relative;
+}
+
+/*Specific formatting for if its in a scrollviewer or a grid*/
+.fixture-item
+{
+    width: 300px !important;
+}
+.horizontal-stackpanel > a
+{
+    margin-right: 30px;
+    width: 225px;
+    height: 100%;
     padding: 0px;
-    overflow: hidden;
-    max-height:400px;
+}
+.mdl-grid > .squad-item
+{
+    height: 300px;
 }
 
-.squad-item-label, .fixture-item-label
+/*The image of the player*/
+.squad-item > div
 {
+    width: 90%;
+    height: 90%;
+    margin: 5%;
     position: absolute;
-    margin: 0px;
-    bottom: 0%;
+    background-position: top;
+    background-size: cover !important;
+    background-color: transparent !important;
+}
+
+/*The name of the player*/
+.squad-item > h2, .fixture-item > h2
+{
     text-align: center;
     color: white;
     background: #505050;
+}
+
+/*A rich image of the player in action*/
+.player-image
+{
+    height: 240px;
     width: 100%;
-    font-size: 14pt;
-    font-family: Roboto;
-}
-
-.squad-cell
-{
-    height: 225px;
-    margin: 10px;
+    background-image: url("media/tom_rich.jpg");
     background-position: top;
-    background-size: cover !important;
-    background-color: white !important;
-}
-
-.bears
-{
-    background: #be0000;
-}
-
-.bees
-{
-    background: #ffdb19;
-    color: #202020;
-}
-    
-.fixture-card
-{
-    height: 320px;
-    width: 300px;
-    display: inline-flex;
+    background-size: cover;
+    background-repeat: no-repeat; 
 }
 
 .padding
