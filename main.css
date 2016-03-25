@@ -4,6 +4,11 @@ body
      background: #F0F0F0;    
 }
 
+#page
+{
+    padding-bottom: 50px;
+}
+
 /*Anything relating to the brizzlebears*/
 .bears
 {
@@ -211,7 +216,7 @@ body
 }
 
 /*An item containing a player*/
-.squad-item, .fixture-item
+.squad-item, .fixture-item, .media-item
 {
     display: inline-flex; 
     flex-direction: row;
@@ -224,7 +229,7 @@ body
 {
     width: 300px !important;
 }
-.horizontal-stackpanel > a
+.horizontal-stackpanel > a, .horizontal-stackpanel > .media-item
 {
     margin-right: 30px;
     width: 225px;
@@ -306,11 +311,19 @@ body
 }
 
 /*The name of the player*/
-.squad-item > h2, .fixture-item > h2
+.squad-item > h2, .fixture-item > h2, .media-item > h2
 {
     text-align: center;
     color: white;
     background: #505050;
+}
+
+.media-item { width: 605px !important; }
+
+.video
+{
+    position: absolute;
+    height: 100%;
 }
 
 .hero-image
