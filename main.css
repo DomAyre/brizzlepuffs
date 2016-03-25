@@ -313,16 +313,18 @@ body
     background: #505050;
 }
 
-/*A rich image of the player in action*/
-.player-image
+.hero-image
 {
     height: 240px;
     width: 100%;
-    background-image: url("media/tom_rich.jpg");
     background-position: top;
     background-size: cover;
-    background-repeat: no-repeat; 
+    background-repeat: no-repeat;
 }
+
+/*A rich image of the player in action*/
+.player-image { background-image: url("media/tom_rich.jpg"); }
+.news-image { background-image: url("media/news_image_1.jpg"); height: 300px; }
 
 .padding
 {
