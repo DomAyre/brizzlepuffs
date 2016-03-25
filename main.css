@@ -26,7 +26,7 @@ body
 {
     background: #4CAF50 !important;
 }
- 
+
 /*Set the background image*/
 #background
 {
@@ -115,11 +115,10 @@ body
 {
 	height: 420px;
     margin-top: 30px;
-    padding: 0px 12px 0px 12px;
     background: #F0F0F0; 
     position: relative;
     overflow: hidden;
-}
+} .news { padding: 0px 12px 0px 12px; }
 
 /*The header for one of the main pages summary sections*/
 .section-header
@@ -185,7 +184,6 @@ body
 .horizontal-stackpanel
 {
     height: 100%;
-    padding-left: 18px;
     white-space: nowrap;
 }
 
@@ -236,6 +234,65 @@ body
 .mdl-grid > .squad-item
 {
     height: 300px;
+}
+
+.fixture-item > div
+{
+    position: absolute;
+    width: 100%;
+    height: 77%;
+}
+
+.fixture-content
+{
+    position: absolute;
+    top: 20%;
+    bottom: 20%;
+    height: 60%;
+    width: 100%;
+}
+
+.team-label
+{
+    position: absolute;
+    color: #202020 !important;
+}
+
+.team-logos { position: absolute; }
+
+.team-logo, #versus
+{
+    background-image: url('media/brizzlepuffs_logo.svg');
+    background-size: contain;
+    background-position: center;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    position: absolute;
+    vertical-align: middle;
+    width: 40%;
+    height: 100%;
+}
+
+#versus
+{
+    margin: 70px 145px;
+    width: auto;
+    height: auto;
+    text-align: center;
+    color: #202020 !important;
+}
+
+.team1 { left: 18px; }
+
+.team2 { right: 18px; }
+
+#team1Name { top: 18px; }
+
+#team2Name { bottom: 18px; }
+
+.versus 
+{ 
+    color: #202020 !important; 
 }
 
 /*The image of the player*/

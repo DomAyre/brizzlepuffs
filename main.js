@@ -51,13 +51,16 @@ function scrolling(event)
         return;
     }
     
+    console.log('Distance from start = ' + event.target.scrollLeft);
+    console.log('Distance from end = ' + $(event.target.children[0]).innerWidth() - $(event.target).innerWidth() - event.target.scrollLeft);
+    
     //If you're at the start
-    if(event.target.scrollLeft <= 0) showHideButtons(type, ".backwards", "Hidden");
-    else showHideButtons(type, ".backwards", "Visible");
+    if(event.target.scrollLeft <= 0) { console.log('Hiding Backwards'); showHideButtons(type, ".backwards", "Hidden"); }
+    else { console.log('Showing Backwards'); showHideButtons(type, ".backwards", "Visible"); }
         
     //If you're at the end
-    if($(event.target.children[0]).innerWidth() - $(event.target).innerWidth() - event.target.scrollLeft <= 0) showHideButtons(type, ".forwards", "Hidden");
-    else showHideButtons(type, ".forwards", "Visible");
+    if($(event.target.children[0]).innerWidth() - $(event.target).innerWidth() - event.target.scrollLeft <= 0) { console.log('Hiding Forwards'); showHideButtons(type, ".forwards", "Hidden"); }
+    else { console.log('Showing Forwards'); showHideButtons(type, ".forwards", "Visible"); }
 }
 
 function scrollHorizontally(event)
@@ -119,7 +122,7 @@ function scalePage()
     var paddingElements = document.querySelectorAll(".padding");
     for (var i = 0; i < paddingElements.length; i++)
     {
-        paddingElements[i].style.width = (window.innerWidth - contentWidthPixels)/2 - 35 + "px";
+        paddingElements[i].style.width = (window.innerWidth - contentWidthPixels)/2 - 5 + "px";
     }
     
     //Set the height of the background
