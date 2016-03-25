@@ -262,7 +262,6 @@ body
 
 .team-logo, #versus
 {
-    background-image: url('media/brizzlepuffs_logo.svg');
     background-size: contain;
     background-position: center;
     background-color: transparent;
