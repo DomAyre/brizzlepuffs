@@ -220,7 +220,7 @@ body
 }
 
 /*Specific formatting for if its in a scrollviewer or a grid*/
-.fixture-item
+.horizontal-stackpanel > .fixture-item
 {
     width: 300px !important;
 }
@@ -231,10 +231,8 @@ body
     height: 100%;
     padding: 0px;
 }
-.mdl-grid > .squad-item
-{
-    height: 300px;
-}
+.mdl-grid > .squad-item { height: 300px; }
+.mdl-grid > .fixture-item { height: 340px; }
 
 .fixture-item > div
 {
@@ -274,8 +272,9 @@ body
 
 #versus
 {
-    margin: 70px 145px;
-    width: auto;
+    width: 10%;
+    height: 10% !important;
+    margin: 26% 45%;
     height: auto;
     text-align: center;
     color: #202020 !important;
