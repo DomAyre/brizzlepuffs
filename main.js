@@ -2,8 +2,26 @@
 addEventListener("load", start);
 var buttonsClicked = false;
 
+//The elements of the page
+var layout, content, scrollButtons, scrollViewers, centeredElements, paddingElements, background;
+
+//The parameters of the page
+var maxWindowWidth = 1600, minContentPerc = 70, maxContentPerc = 90;
+var diffContentPerc = maxContentPerc - minContentPerc;
+var backgroundHeight;
+var parallax = 0.3;
+
 function start()
 {
+    //Get the elements of the page
+    layout = document.querySelector(".mdl-layout")
+    content = document.querySelector(".mdl-layout__content");
+    scrollButtons = document.querySelectorAll(".horizontal-button");
+    scrollViewers = document.querySelectorAll(".horizontal-scrollviewer");
+    centeredElements = document.querySelectorAll(".centered");
+    paddingElements = document.querySelectorAll(".padding");
+    background = document.querySelector("#background");
+    
     //Scale the page
     scalePage();
     
@@ -11,19 +29,16 @@ function start()
     window.addEventListener("resize", scalePage);
     
     //Set scroll listeners for the two modes of the page
-    var layout = document.querySelector(".mdl-layout"), content = document.querySelector(".mdl-layout__content");
     layout.addEventListener("scroll", scrollBackground);
     content.addEventListener("scroll", scrollBackground); 
     
     //Set click listener for scroll buttons
-    var scrollButtons = document.querySelectorAll(".horizontal-button");
     for (var i = 0; i < scrollButtons.length; i++)
     {
         scrollButtons[i].addEventListener("click", scrollHorizontally);
     }   
     
     //Add scroll listeners to show/hide the buttons
-    var scrollViewers = document.querySelectorAll(".horizontal-scrollviewer");
     for (var i = 0; i < scrollViewers.length; i++)
     {
         scrollViewers[i].addEventListener("scroll", scrolling);
@@ -93,17 +108,15 @@ function scrollBackground(event)
 {   
     //Get the amount that has been scrolled
     var scrolled = event.target.scrollTop + 1;
+    var backgroundScroll = scrolled*parallax;
     
     //Scroll the background
-    $(".background").css("background-position", "0" + -(scrolled * 0.3) + "px");
+    if (backgroundScroll < backgroundHeight)
+        $(".background").css("background-position", "0" + -(scrolled * 0.3) + "px");
 }
 
 function scalePage()
-{    
-    //Define the max window width and the min/max content proportion
-    var maxWindowWidth = 1600, minContentPerc = 70, maxContentPerc = 90;
-    var diffContentPerc = maxContentPerc - minContentPerc;
-    
+{        
     //Work out the proportion of the max width the window is
     var windowWidthPercentage = Math.max(maxWindowWidth - window.innerWidth, 0) / maxWindowWidth;
         
@@ -112,20 +125,18 @@ function scalePage()
     var contentWidthPixels = contentWidthPercentage/100 * window.innerWidth;
     
     //Find all elements which are centered and set their width
-    var centeredElements = document.querySelectorAll(".centered");
     for (var i = 0; i < centeredElements.length; i++)
     {
         centeredElements[i].style.width = contentWidthPercentage + "%";
     }
     
     //Set the width of all padding elements
-    var paddingElements = document.querySelectorAll(".padding");
     for (var i = 0; i < paddingElements.length; i++)
     {
         paddingElements[i].style.width = (window.innerWidth - contentWidthPixels)/2 - 5 + "px";
     }
     
     //Set the height of the background
-    var background = document.querySelector("#background");
-    if (background != null) background.style.height = $("#background").innerWidth() / 5.12 + "px";
+    if (background != null) background.style.height = background.offsetWidth/ 5.12 + "px";
+    backgroundHeight = background.style.height.split("px")[0];
 }

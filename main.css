@@ -106,15 +106,6 @@ body
     margin-bottom:50px;
 }
 
-/*Centers a piece of content*/
-.centered
-{
-    width: 70%;
-	margin-left: auto;
-	margin-right: auto;
-	text-align: center;
-}
-
 /*One of the summary sections on the main page*/
 .section
 {
@@ -218,6 +209,7 @@ body
 /*An item containing a player*/
 .squad-item, .fixture-item, .media-item
 {
+    margin: 0px 30px 0px 0px;
     display: inline-flex; 
     flex-direction: row;
     background: white;
@@ -338,11 +330,21 @@ body
 
 .padding
 {
-    height:100%; 
+    height:100%;
+    width: 15%; 
     display:inline-flex;
 }
 
 a
 {
 	color: transparent
+}
+
+/*Centers a piece of content*/
+.centered
+{
+    width: 70%;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
 }
