@@ -209,7 +209,6 @@ body
 /*An item containing a player*/
 .squad-item, .fixture-item, .media-item
 {
-    margin: 0px 30px 0px 0px;
     display: inline-flex; 
     flex-direction: row;
     background: white;
@@ -219,9 +218,9 @@ body
 /*Specific formatting for if its in a scrollviewer or a grid*/
 .horizontal-stackpanel > .fixture-item { width: 300px !important; }
 .horizontal-stackpanel > .media-item { width: 605px !important; }
-.horizontal-stackpanel > a, .horizontal-stackpanel > .media-item
+.horizontal-stackpanel > a, .horizontal-stackpanel > div:not(.padding)
 {
-    margin-right: 30px;
+    margin: 0px 30px 0px 0px;
     width: 225px;
     height: 100%;
     padding: 0px;

@@ -112,7 +112,7 @@ function scrollBackground(event)
     
     //Scroll the background
     if (backgroundScroll < backgroundHeight)
-        $(".background").css("background-position", "0" + -(scrolled * 0.3) + "px");
+        $(".background").css("background-position", "0" + -backgroundScroll + "px");
 }
 
 function scalePage()
