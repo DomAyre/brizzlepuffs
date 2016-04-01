@@ -113,7 +113,6 @@ function scrollBackground(event)
     //Scroll the background
     if (backgroundScroll-5 <= backgroundHeight)
     {
-        console.log(backgroundScroll - backgroundHeight);
         $(".background").css("background-position", "0" + -backgroundScroll + "px");
     }
 }
