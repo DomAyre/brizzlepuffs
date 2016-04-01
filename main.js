@@ -62,20 +62,22 @@ function scrolling(event)
     
     if (buttonsClicked == false)
     {
+        showHideButtons("fixture", ".horizontal-button", "Hidden");
         showHideButtons("squad", ".horizontal-button", "Hidden");
+        showHideButtons("media", ".horizontal-button", "Hidden");
         return;
     }
     
-    console.log('Distance from start = ' + event.target.scrollLeft);
-    console.log('Distance from end = ' + $(event.target.children[0]).innerWidth() - $(event.target).innerWidth() - event.target.scrollLeft);
+    var distFromStart = event.target.scrollLeft;
+    var distFromEnd = (event.target.scrollWidth - $(event.target).outerWidth() - event.target.scrollLeft);
     
     //If you're at the start
-    if(event.target.scrollLeft <= 0) { console.log('Hiding Backwards'); showHideButtons(type, ".backwards", "Hidden"); }
-    else { console.log('Showing Backwards'); showHideButtons(type, ".backwards", "Visible"); }
+    if(distFromStart <= 0) { showHideButtons(type, ".backwards", "Hidden"); }
+    else { showHideButtons(type, ".backwards", "Visible"); }
         
     //If you're at the end
-    if($(event.target.children[0]).innerWidth() - $(event.target).innerWidth() - event.target.scrollLeft <= 0) { console.log('Hiding Forwards'); showHideButtons(type, ".forwards", "Hidden"); }
-    else { console.log('Showing Forwards'); showHideButtons(type, ".forwards", "Visible"); }
+    if(distFromEnd <= 0) { showHideButtons(type, ".forwards", "Hidden"); }
+    else { showHideButtons(type, ".forwards", "Visible"); }
 }
 
 function scrollHorizontally(event)
@@ -85,7 +87,6 @@ function scrollHorizontally(event)
     
     //Construct the scrollviewer name
     var scrollName = "#" + event.target.parentElement.name + "-scrollviewer";
-    var itemName = "." + event.target.parentElement.name + "-item";
         
     //Get the parent of the button
     var parent = document.querySelector(scrollName);
