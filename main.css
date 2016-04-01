@@ -253,15 +253,17 @@ body
 
 .badge-container
 {
+    max-width: 70%;
     margin-top: 12px;
     margin-bottom: 12px;
-    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .badge
 {
     height: 30px;
-    margin: auto;
+    margin: 6px 8px 6px 8px;
 }
 
 .team-logos { position: absolute; }
