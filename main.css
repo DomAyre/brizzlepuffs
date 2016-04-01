@@ -35,14 +35,14 @@ body
 /*Set the background image*/
 #background
 {
-    background-image: url("media/header_image.jpg"); 
+    background-image: url("media/header_image.png"); 
     alt: "Club Photo";    
 }
 
 /*Set the player background TO BE REPLACED WITH BACKEND*/
 #player-background
 {
-    background-image: url("media/players/ower_background.jpg"); 
+    background-image: url("media/players/ower_background.png"); 
     alt: "Player Background";
 }
 
@@ -368,9 +368,9 @@ body
 }
 
 /*A rich image of the player in action*/
-#player-image { background-image: url("media/players/ower_rich.jpg"); }
-#fixture-image { background-image: url("media/fixture_image.jpg"); }
-.news-image { background-image: url("media/news_image_1.jpg"); height: 300px; }
+#player-image { background-image: url("media/players/ower_rich.png"); }
+#fixture-image { background-image: url("media/fixture_image.png"); }
+.news-image { background-image: url("media/news_image_1.png"); height: 300px; }
 
 .padding
 {
@@ -382,6 +382,34 @@ body
 a
 {
 	color: transparent
+}
+
+.youtube 
+{
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    transition: all 200ms ease-out;
+    cursor: pointer;
+}
+
+.youtube .play
+{
+    background: url("media/youtube_icon.png") no-repeat center center;
+    background-size: 85px 60px;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    opacity: .8;
+    filter: alpha(opacity=0.8);
+    transition: all 0.2s ease-out;
+}
+
+.youtube .play:hover 
+{
+    opacity: 1;
+    filter: alpha(opacity=100);
 }
 
 /*Centers a piece of content*/

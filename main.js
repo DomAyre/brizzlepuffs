@@ -43,6 +43,30 @@ function start()
     {
         scrollViewers[i].addEventListener("scroll", scrolling);
     }
+    
+    //Set all youtube thumbnails
+    $(".youtube").each(function() 
+    {
+        //Set the thumbnail image
+        $(this).css('background-image', 'url(http://i.ytimg.com/vi/' + this.id + '/sddefault.jpg)');
+    
+        // Overlay the Play icon to make it look like a video player
+        $(this).append($('<div/>', {'class': 'play'}));
+    
+        $(document).delegate('#'+this.id, 'click', function() 
+        {                        
+            // Create an iFrame with autoplay set to true
+            var iframe_url = "https://www.youtube.com/embed/" + this.id + "?autoplay=1&autohide=1";
+            if ($(this).data('params')) iframe_url+='&'+$(this).data('params');
+    
+            //Define the HTML for the iframe
+            var iframe = "<iframe src='" + iframe_url + "' class='video' frameborder='0'  allowfullscreen='true'></iframe>";
+    
+            // Replace the YouTube thumbnail with YouTube HTML5 Player
+            this.innerHTML = iframe;
+        });
+    });
+
 }
 
 function showHideButtons(type, buttons, visbility)
