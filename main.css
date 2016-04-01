@@ -300,6 +300,7 @@ body
 
 .versus 
 { 
+    margin: auto;
     color: #202020 !important; 
 }
 
@@ -331,15 +332,43 @@ body
 
 .hero-image
 {
-    height: 240px;
+    height: 280px;
     width: 100%;
     background-position: top;
     background-size: cover;
     background-repeat: no-repeat;
 }
 
+.fixture-header
+{
+    display: inline-flex;
+    height: 100%;
+}
+
+.fixture-header-image
+{
+    height: 65%;
+    width: 32%;
+    margin: auto 0px;
+    background-size: contain;
+    background-position: center;
+    background-color: transparent;
+    background-repeat: no-repeat;
+}
+
+#fixture-team1 { background-image: url("media/teams/brizzlepuffs.png"); }
+#fixture-team2 { background-image: url("media/teams/durham.png"); }
+
+.score
+{
+    width: 38%;
+    margin: auto 0px;
+    color: white;
+}
+
 /*A rich image of the player in action*/
-.player-image { background-image: url("media/tom_rich.jpg"); }
+#player-image { background-image: url("media/tom_rich.jpg"); }
+#fixture-image { background-image: url("media/fixture_image.jpg"); }
 .news-image { background-image: url("media/news_image_1.jpg"); height: 300px; }
 
 .padding
