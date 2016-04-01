@@ -251,6 +251,19 @@ body
     color: #202020 !important;
 }
 
+.badge-container
+{
+    margin-top: 12px;
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+.badge
+{
+    height: 30px;
+    margin: auto;
+}
+
 .team-logos { position: absolute; }
 
 .team-logo, #versus
