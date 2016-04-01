@@ -107,12 +107,15 @@ function scrollHorizontally(event)
 function scrollBackground(event)
 {   
     //Get the amount that has been scrolled
-    var scrolled = event.target.scrollTop + 1;
+    var scrolled = event.target.scrollTop;
     var backgroundScroll = scrolled*parallax;
     
     //Scroll the background
-    if (backgroundScroll < backgroundHeight)
+    if (backgroundScroll-5 <= backgroundHeight)
+    {
+        console.log(backgroundScroll - backgroundHeight);
         $(".background").css("background-position", "0" + -backgroundScroll + "px");
+    }
 }
 
 function scalePage()
