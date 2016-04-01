@@ -42,7 +42,7 @@ body
 /*Set the player background TO BE REPLACED WITH BACKEND*/
 #player-background
 {
-    background-image: url("media/player_background.jpg"); 
+    background-image: url("media/players/ower_background.jpg"); 
     alt: "Player Background";
 }
 
@@ -368,7 +368,7 @@ body
 }
 
 /*A rich image of the player in action*/
-#player-image { background-image: url("media/tom_rich.jpg"); }
+#player-image { background-image: url("media/players/ower_rich.jpg"); }
 #fixture-image { background-image: url("media/fixture_image.jpg"); }
 .news-image { background-image: url("media/news_image_1.jpg"); height: 300px; }
 
