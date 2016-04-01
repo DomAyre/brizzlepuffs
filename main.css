@@ -87,10 +87,11 @@ body
     margin-top: -34px;
 }
 
-/*All main content starts with a small space*/
+/*All main content starts and ends with a small space*/
 .main-content 
 {
 	margin-top: 30px;
+	margin-bottom: 30px;
 }
 
 /*The first item of a horzontal scroller has a space at the start*/
