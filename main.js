@@ -111,7 +111,7 @@ function scrollBackground(event)
     var backgroundScroll = scrolled*parallax;
     
     //Scroll the background
-    if (backgroundScroll-5 <= backgroundHeight)
+    if (backgroundScroll-25 <= backgroundHeight)
     {
         $(".background").css("background-position", "0" + -backgroundScroll + "px");
     }
