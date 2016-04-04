@@ -42,9 +42,9 @@ body
 /*Set the player background TO BE REPLACED WITH BACKEND*/
 #player-background
 {
-    background-image: url("media/players/ower_background.png"); 
     alt: "Player Background";
 }
+#player-image { background-color: red; }
 
 /*Define a background which fills the whole page*/
 .full-bleed
@@ -308,7 +308,8 @@ body
     margin: 5%;
     position: absolute;
     background-position: top;
-    background-size: cover !important;
+    background-size: 100% !important;
+    background-repeat: no-repeat;
     background-color: transparent !important;
 }
 
@@ -352,9 +353,6 @@ body
     background-repeat: no-repeat;
 }
 
-#fixture-team1 { background-image: url("media/teams/brizzlepuffs.png"); }
-#fixture-team2 { background-image: url("media/teams/durham.png"); }
-
 .score
 {
     width: 38%;
@@ -363,8 +361,6 @@ body
 }
 
 /*A rich image of the player in action*/
-#player-image { background-image: url("media/players/ower_rich.png"); }
-#fixture-image { background-image: url("media/fixture_image.png"); }
 .news-image { background-image: url("media/news_image_1.png"); height: 300px; }
 
 .padding

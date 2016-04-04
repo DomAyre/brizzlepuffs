@@ -2,11 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
     lang="en-GB" xml:lang="en-GB">
     <script src="https://code.getmdl.io/1.1.1/material.min.js"></script>
-    <script src="main.js"></script>
+    <script src="scripts/main.js"></script>
+    <script src="scripts/fixture.js"></script>
+    <script src="node_modules/HTTPRequest/HTTPRequest.js"></script>
   
     <head>
         
-        <title>25/2/2016 - Durhamstrang</title>
+        <title>Fixture</title>
         
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -50,7 +52,7 @@
                 <div class="mdl-layout__header-row">
 
                     <!--Title-->
-                    <span class="mdl-layout-title">Brizzlepuffs vs Durhamstrang</span>
+                    <span id="title" class="mdl-layout-title">Fixture</span>
                     
                 </div>
                 
@@ -83,8 +85,8 @@
                         <div class="fixture-header centered">
                             <div id="fixture-team1" class="fixture-header-image"></div>
                             <div class="score">
-                                <h6>25/2/2016</h6>
-                                <h3>120* - 80</h3>
+                                <h6 id="fixture-date"></h6>
+                                <h3 id="fixture-score"></h3>
                             </div>
                             <div id="fixture-team2" class="fixture-header-image"></div>
                         </div>
@@ -92,15 +94,8 @@
                     </div>
                 
                     <!--Fixture Writeup-->
-                    <p class="main-content centered">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eget pellentesque ligula. Maecenas lacinia sed nibh in ullamcorper. Praesent ultrices imperdiet quam sed dapibus. Nullam vitae luctus enim. Curabitur molestie nisi lorem, et sollicitudin ex finibus ut. Nam ornare, magna ac lobortis tempor, justo eros egestas mauris, sit amet malesuada velit justo vitae est. Morbi iaculis ultricies metus, eu iaculis mi efficitur eu. Integer eget venenatis massa. Aenean id ligula sed sem gravida luctus non at mauris. Sed sagittis, diam at hendrerit ultrices, quam est vehicula lorem, sed cursus lorem orci vel leo. 
-
-                        Nullam ac nunc lobortis, elementum tellus non, facilisis augue. Sed varius aliquet nibh, vitae molestie dui dictum lobortis. Nulla facilisi. Donec sed lectus sit amet magna varius porttitor eget quis urna. Cras imperdiet purus accumsan tincidunt consectetur. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Phasellus vitae efficitur dui. Maecenas rutrum porta neque at gravida. Sed commodo congue magna, id mollis augue pellentesque vel. Suspendisse id est mollis, vehicula mauris vitae, dapibus est. Mauris dapibus enim at justo mollis tempus. 
-
-                        Sed ut finibus risus. Proin non nisl nec lacus dignissim lobortis eu vitae nibh. Praesent a neque et nisi pharetra ornare. Maecenas est velit, faucibus eget lacinia ac, ultrices sit amet mauris. Fusce volutpat vitae enim at mollis. Maecenas condimentum sagittis mauris. Vestibulum nec est ac erat gravida lobortis at vel metus. Curabitur scelerisque nulla urna, ac luctus erat aliquet et. Ut sapien sapien, feugiat quis diam eu, ultrices pellentesque tellus. Nunc mollis magna et tortor ultrices, eget maximus mi tempus. Ut fringilla risus eu odio vehicula, eu aliquam ex tempor. Donec viverra lacinia ipsum eget accumsan. Nam nunc est, efficitur eget ipsum rutrum, gravida ultrices nunc. Integer interdum laoreet risus, ut pharetra ante aliquam sit amet. Maecenas ut velit at lectus molestie porttitor et ut erat. 
-
-                        Suspendisse luctus semper arcu, id suscipit urna lobortis non. Fusce et erat et turpis porta efficitur. Praesent feugiat tempus dolor a hendrerit. Morbi et aliquam ante, at sagittis est. Phasellus viverra libero elit, pretium vestibulum purus venenatis nec. Donec tincidunt tortor at lacus maximus tempor nec eu ex. Morbi cursus vestibulum dui sed ornare. Pellentesque vitae sapien ut turpis pretium porttitor. Curabitur efficitur lobortis magna a tempus. Duis a lorem vel massa pharetra iaculis ultricies sit amet lectus. 
-
+                    <p id="writeup" class="main-content centered">
+                        
                     </p>
                     
                 </div>
