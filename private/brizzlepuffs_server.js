@@ -3,6 +3,12 @@ var http = require('http');
 var https = require('https');
 var fs = require('fs');
 var path = require('path');
+var qs = require('querystring');
+
+//The database
+var sql = require("sqlite3");
+sql.verbose();
+var database = new sql.Database("private/brizzlepuffs.db");
 
 //Define constants for codes being sent to the browser
 var OK = 200, NotFound = 404, BadType = 415;
@@ -43,7 +49,7 @@ function start(port)
 {
     //Create a server
     var service = http.createServer(handle);
-    
+        
     //Start listening
     service.listen(port, 'localhost'); 
     console.log("Server running at localhost:" + port);
@@ -55,8 +61,12 @@ function handle(request, response)
     //Get the url of the request (making sure its lower case)
     var url = request.url.toLowerCase();
     
+    //Rewrite the url for news, fixtures and players
+    //url = parse(url);
+    
     //Get any associated query
-    var query = getQuery(url);
+    var result = getQuery(url);
+    url = result[0]; query = result[1];
     
     //If you're at the root load the main page
     if (ends(url, "/")) url = url + "index.html";
@@ -71,33 +81,78 @@ function handle(request, response)
     if (!type) return fail(response, BadType, "File type unsupported");
     
     //Reply to the request
-    reply(response, url, type);
+    else reply(response, url, query, type);
 }
 
 // Send the reply.
-function reply(response, url, type) 
+function reply(response, url, query, type) 
+{
+    //Define the header
+    var header = { 'Content-Type': type };
+    
+    //Write the header of the response
+    response.writeHead(OK, header);
+    
+    //If the request is for a snippet instead of a file
+    if (contains(url, "snippet"))
+        replyData(response, url, query);
+    else
+        replyFile(response, url, query);
+}
+
+function replyData(response, url, query)
+{       
+    //Get the parameters of the request
+    var table = capitaliseFirstLetter(url.substring(9).split(".")[0]);
+        
+    //Find the player in the database
+    database.all("select * from " + table + (query? " where " + query: ""), function(error, records)
+    {
+        if (error) throw error;
+        respond(response, JSON.stringify(records));
+        return;
+    });    
+}
+
+function replyFile(response, url, query)
 {
     //Convert the url into a file path
     var file = "." + url;
     
-    //Reply to the request
+    //If its a file give that
     fs.readFile(file, function(error, content)
     {
         //Check for errors
-        if(error) return fail(response, NotFound, "File not found"); 
-            
-        //Define the header
-        var header = { 'Content-Type': type };
-        
-        //Write the header of the response
-        response.writeHead(OK, header);
-        
-        //Write the reponse for the browser
-        response.write(content);
-        
-        //Finish responding
-        response.end();
+        if(error) 
+        {
+            //If you requested a player picture which doesn't exist
+            if (contains(url,"player") && (!contains(url, "_rich") && !contains(url, "_background")) && ends(url, ".png"))
+            {
+                //Give the club logo instead
+                fs.readFile("media/players/blank.png", function(error2, content2) 
+                {
+                    if (error2) return fail(response, NotFound, "File not found");
+                    respond(response, content2);
+                });                
+            }          
+            else return fail(response, NotFound, "File not found");
+        }  
+        else respond(response, content);
     });
+}
+
+function capitaliseFirstLetter(stringToCapitalise)
+{
+    return stringToCapitalise.substring(0,1).toUpperCase() + stringToCapitalise.substring(1);
+}
+
+function respond(response, content)
+{
+    //Write the reponse for the browser
+    response.write(content);
+    
+    //Finish responding
+    response.end();
 }
 
 function getQuery(url) 
@@ -106,10 +161,10 @@ function getQuery(url)
     var parts = url.split("?");
     
     //Update the url to not contain the query
-    url = parts[0];
+    var query = parts[1];
     
     //Return the query
-    return parts[1];
+    return [parts[0],query];
 }
 
 function valid(url)
@@ -136,6 +191,15 @@ function safe(url)
 }
 
 function accessible(url) { return !contains(url, "private"); }
+
+function parse(url) 
+{
+    if (contains(url, "/players/"))
+    {
+        var parts = url.split("/players/");
+        return parts[0] + "/player.html?name=" + parts[1];
+    }
+}
 
 function getFileType(request, url)
 {
