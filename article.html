@@ -3,6 +3,8 @@
     lang="en-GB" xml:lang="en-GB">
     <script src="https://code.getmdl.io/1.1.1/material.min.js"></script>
     <script src="scripts/main.js"></script>
+    <script src="scripts/article.js"></script>
+    <script src="node_modules/HTTPRequest/HTTPRequest.js"></script>
   
     <head>
         
@@ -50,7 +52,7 @@
                 <div class="mdl-layout__header-row">
 
                     <!--Title-->
-                    <span class="mdl-layout-title">Brizzlepuffs hit Waterstones</span>
+                    <span id="news-headline" class="mdl-layout-title">Brizzlepuffs hit Waterstones</span>
                     
                 </div>
                 
@@ -68,9 +70,19 @@
                     <a class="mdl-navigation__link" href="news.html">News</a>
                     <a class="mdl-navigation__link" href="squads.html">Squad</a>
                     <a class="mdl-navigation__link" href="fixtures.html">Fixtures</a>
-                    <a class="mdl-navigation__link" href="calendar.html">Calendar</a>
+                    <a class="mdl-navigation__link" href="https://www.facebook.com/brizzlepuffs/events">Calendar</a>
                     <a class="mdl-navigation__link" href="media.html">Media</a>
+                    <a class="mdl-navigation__link" href="http://fb.me/msg/brizzlepuffs">Contact us</a>
+                    
+                    <div id="social-links">
+                        <a class="mdl-navigation__link facebook" href="https://www.facebook.com/brizzlepuffs/" target="_blank">Facebook</a>
+                        <a class="mdl-navigation__link twitter" href="https://twitter.com/brizzlepuffs" target="_blank">Twitter</a>
+                        <a class="mdl-navigation__link instagram" href="https://www.instagram.com/brizzlepuffs_quidditch_club/" target="_blank">Instagram</a>
+                        <a class="mdl-navigation__link youtube-colour" href="https://www.youtube.com/channel/UCpClSAbTx5EYaKMmrZd3Zzw?nohtml5=False" target="_blank">Youtube</a>
+                    </div>
+                         
                 </nav>
+                
             </div>
             
             <!--Content-->
@@ -78,10 +90,10 @@
                                     
                 <div class="main-content centered mdl-card mdl-shadow--2dp main-card">
                     
-                    <div class="hero-image news-image"></div>
+                    <img id="news-image"/>
                     
                     <!--Player Profile-->
-                    <p class="main-content centered">
+                    <p id="news-content" class="main-content centered">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eget pellentesque ligula. Maecenas lacinia sed nibh in ullamcorper. Praesent ultrices imperdiet quam sed dapibus. Nullam vitae luctus enim. Curabitur molestie nisi lorem, et sollicitudin ex finibus ut. Nam ornare, magna ac lobortis tempor, justo eros egestas mauris, sit amet malesuada velit justo vitae est. Morbi iaculis ultricies metus, eu iaculis mi efficitur eu. Integer eget venenatis massa. Aenean id ligula sed sem gravida luctus non at mauris. Sed sagittis, diam at hendrerit ultrices, quam est vehicula lorem, sed cursus lorem orci vel leo. 
 
                         Nullam ac nunc lobortis, elementum tellus non, facilisis augue. Sed varius aliquet nibh, vitae molestie dui dictum lobortis. Nulla facilisi. Donec sed lectus sit amet magna varius porttitor eget quis urna. Cras imperdiet purus accumsan tincidunt consectetur. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Phasellus vitae efficitur dui. Maecenas rutrum porta neque at gravida. Sed commodo congue magna, id mollis augue pellentesque vel. Suspendisse id est mollis, vehicula mauris vitae, dapibus est. Mauris dapibus enim at justo mollis tempus. 

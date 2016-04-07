@@ -28,6 +28,9 @@ function start()
         document.querySelector("#player-background").style.backgroundImage = "url('media/players/" + player["Last_Name"].toLowerCase() + "_background.png')";
         document.querySelector("#player-image").style.backgroundImage = "url('media/players/" + player["Last_Name"].toLowerCase() + "_rich.png')";
         
+        //Set the background colour in case there is no picture
+        document.querySelector("#player-image").style.backgroundColor = (player["Team"] == "Brizzlebees"? "yellow" : "red");
+        
         //Set the badges
         var badges = "";
         if (player["Team"] == "Brizzlebears") badges += badge("bear");
@@ -43,7 +46,7 @@ function start()
         
         //Set the profile
         var profile = (player["Profile"] != null? player["Profile"] : player["First_Name"] + " doesn't have a profile yet, but keep your eyes peeled its only a matter of time");
-        document.querySelector("#player-profile").innerHTML = profile;
+        document.querySelector("#player-profile").innerHTML = profile.split("\n").join("<br/>");
         
     });
 }

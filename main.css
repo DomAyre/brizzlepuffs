@@ -4,6 +4,11 @@ body
      background: #F0F0F0;    
 }
 
+p
+{
+    font-size: 16px;
+}
+
 #page
 {
     padding-bottom: 50px;
@@ -22,14 +27,46 @@ body
     color: #202020 !important;
 }
 
+.facebook
+{
+    color: #3B5998 !important;
+}
+
+.twitter
+{
+    color: #00aced !important;
+}
+
+.youtube-colour
+{
+    color: #bb0000 !important;
+}
+
+.instagram
+{
+    color: #517fa4 !important;
+}
+
 .fixture
 {
-    background: #01579B !important;
+    background: #4CAF50 !important;
 }
 
 .media
 {
     background: #4CAF50 !important;
+}
+
+#social-links
+{
+    width: 100%;
+    margin-top: 60px;
+}
+
+#filter-players
+{
+    vertical-align: right;
+    float: right;
 }
 
 /*Set the background image*/
@@ -42,9 +79,20 @@ body
 /*Set the player background TO BE REPLACED WITH BACKEND*/
 #player-background
 {
+    background-color: gray;
     alt: "Player Background";
 }
 #player-image { background-color: red; }
+
+.header-team-logos
+{
+    width: 5%;
+}
+
+.header-club-logo
+{
+    width: 8%;
+}
 
 /*Define a background which fills the whole page*/
 .full-bleed
@@ -85,13 +133,13 @@ body
 {
     text-align: center;
     margin-top: -34px;
-}
+} #index-logos { margin-top: 30px !important; }
 
 /*All main content starts and ends with a small space*/
 .main-content 
 {
 	margin-top: 30px;
-	margin-bottom: 30px;
+	margin-bottom: 50px;
 }
 
 /*The first item of a horzontal scroller has a space at the start*/
@@ -121,12 +169,13 @@ body
 .section-header
 {    
     display: flex;
-    height: 15%;
+    height: 50px;
     width: 100%;
 }
-.section-header > h6
+.section-header > h6, h6.section-header
 {
-    height: 100%;
+    margin-top: auto;
+    margin-bottom: auto;
     display: flex;
     align-items: center;
     color: #606060;    
@@ -138,6 +187,7 @@ body
 {
     height: 85%;
 }
+
 
 .news { height: auto; } .news > .section-header { height: 50px; }
 
@@ -198,13 +248,19 @@ body
     margin: 0;
 }
 
+.news-item
+{
+    background-position: center;
+    background-size: cover;
+    height: 294px;
+}
+
 /*The headline of a news item*/
 .news-item > h2, .fixture-item > h2
 {
     text-align: left;
-    background: #202020;
+    background: #3B5998;
     color: white;
-    opacity: 0.7;
 }
 
 /*An item containing a player*/
@@ -360,8 +416,11 @@ body
     color: white;
 }
 
-/*A rich image of the player in action*/
-.news-image { background-image: url("media/news_image_1.png"); height: 300px; }
+
+#news-image 
+{  
+    width: 100%;
+}
 
 .padding
 {
@@ -407,6 +466,7 @@ a
 .centered
 {
     width: 70%;
+    max-width: 1200px;
 	margin-left: auto;
 	margin-right: auto;
 	text-align: center;

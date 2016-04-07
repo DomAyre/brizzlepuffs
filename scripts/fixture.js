@@ -44,6 +44,6 @@ function start()
         
         //Set the writeup
         var writeup = (fixture["Writeup"] != null? fixture["Writeup"] : "There is no writeup for this match yet, to submit one email brizzlepuffs@outlook.com");
-        document.querySelector("#writeup").innerHTML = writeup;
+        document.querySelector("#writeup").innerHTML = writeup.split("\n").join("<br/>");
     });
 }

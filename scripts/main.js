@@ -149,7 +149,7 @@ function scalePage()
         
     //Work out what proportion of the screen content should occupy at the given size
     var contentWidthPercentage = minContentPerc + (diffContentPerc * windowWidthPercentage);
-    var contentWidthPixels = contentWidthPercentage/100 * window.innerWidth;
+    var contentWidthPixels = Math.min(contentWidthPercentage/100 * window.innerWidth, 1200);
     
     //Find all elements which are centered and set their width
     for (var i = 0; i < centeredElements.length; i++)

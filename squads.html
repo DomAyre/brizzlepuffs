@@ -54,14 +54,29 @@
 
                     <!--Title-->
                     <span class="mdl-layout-title">Squad</span>
+                
+                    <div class="mdl-layout-spacer"></div>
+                    
+                    <!-- Expandable Textfield -->
+                    <form action="#">
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+                        <label class="mdl-button mdl-js-button mdl-button--icon" for="search-box">
+                            <i class="material-icons">search</i>
+                        </label>
+                        <div class="mdl-textfield__expandable-holder">
+                        <input class="mdl-textfield__input" type="text" id="search-box">
+                        <label class="mdl-textfield__label" for="sample-expandable">Expandable Input</label>
+                        </div>
+                    </div>
+                    </form>
                     
                 </div>
-                
+                 
                 <!--Logos-->           
                 <div class="logos">
-                    <img src="media/teams/brizzlebears.svg" width="5%"/>
-                    <a href="index.html"><img src="media/brizzlepuffs_logo.svg" width="8%"/></a>
-                    <img src="media/teams/brizzlebees.svg" width="5%"/>
+                    <img class="header-team-logos" src="media/teams/brizzlebears.svg"/>
+                    <a href="index.html"><img class="header-club-logo" src="media/brizzlepuffs_logo.svg"/></a>
+                    <img class="header-team-logos" src="media/teams/brizzlebees.svg"/>
                 </div>
                 
             </header>
@@ -78,18 +93,41 @@
                     <a class="mdl-navigation__link" href="news.html">News</a>
                     <a class="mdl-navigation__link" href="squads.html">Squad</a>
                     <a class="mdl-navigation__link" href="fixtures.html">Fixtures</a>
-                    <a class="mdl-navigation__link" href="calendar.html">Calendar</a>
+                    <a class="mdl-navigation__link" href="https://www.facebook.com/brizzlepuffs/events">Calendar</a>
                     <a class="mdl-navigation__link" href="media.html">Media</a>
+                    <a class="mdl-navigation__link" href="http://fb.me/msg/brizzlepuffs">Contact us</a>
+                    
+                    <div id="social-links">
+                        <a class="mdl-navigation__link facebook" href="https://www.facebook.com/brizzlepuffs/" target="_blank">Facebook</a>
+                        <a class="mdl-navigation__link twitter" href="https://twitter.com/brizzlepuffs" target="_blank">Twitter</a>
+                        <a class="mdl-navigation__link instagram" href="https://www.instagram.com/brizzlepuffs_quidditch_club/" target="_blank">Instagram</a>
+                        <a class="mdl-navigation__link youtube-colour" href="https://www.youtube.com/channel/UCpClSAbTx5EYaKMmrZd3Zzw?nohtml5=False" target="_blank">Youtube</a>
+                    </div>
+                         
                 </nav>
             </div>
             
            <!--Content-->
-            <main class="mdl-layout__content">
+           <main class="mdl-layout__content">
                 
-                <div class="mdl-grid main-content centered">
-
-                    <div id="ALLPLAYERS"></div>
-     
+                <div class="centered main-content">                           
+                    <div id="PLAYERS" class="mdl-grid"></div>
+                </div>
+                <div class="centered position-container">
+                    <h6 class="mdl-card__title-text section-header" style="color:white;">Keepers</h6>                               
+                    <div id="KEEPERS" class="mdl-grid"></div>
+                </div>
+                <div id="ChaserDiv" class="centered position-container">
+                    <h6 class="mdl-card__title-text section-header">Chasers</h6>                               
+                    <div id="CHASERS" class="mdl-grid"></div>
+                </div>
+                <div id="BeaterDiv" class="centered position-container">
+                    <h6 class="mdl-card__title-text section-header">Beaters</h6>                               
+                    <div id="BEATERS" class="mdl-grid"></div>
+                </div>
+                <div id="SeekerDiv" class="centered position-container">
+                    <h6 class="mdl-card__title-text section-header">Seekers</h6>                               
+                    <div id="SEEKERS" class="mdl-grid"></div>
                 </div>
                 
             </main>

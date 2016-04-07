@@ -3,6 +3,8 @@
     lang="en-GB" xml:lang="en-GB">
     <script src="https://code.getmdl.io/1.1.1/material.min.js"></script>
     <script src="scripts/main.js"></script>
+    <script src="scripts/news.js"></script>
+    <script src="node_modules/HTTPRequest/HTTPRequest.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
   
     <head>
@@ -54,12 +56,12 @@
                     <span class="mdl-layout-title">News</span>
                     
                 </div>
-                
+                 
                 <!--Logos-->           
                 <div class="logos">
-                    <img src="media/teams/brizzlebears.svg" width="5%"/>
-                    <a href="index.html"><img src="media/brizzlepuffs_logo.svg" width="8%"/></a>
-                    <img src="media/teams/brizzlebees.svg" width="5%"/>
+                    <img class="header-team-logos" src="media/teams/brizzlebears.svg"/>
+                    <a href="index.html"><img class="header-club-logo" src="media/brizzlepuffs_logo.svg"/></a>
+                    <img class="header-team-logos" src="media/teams/brizzlebees.svg"/>
                 </div>
                 
             </header>
@@ -76,8 +78,17 @@
                     <a class="mdl-navigation__link" href="news.html">News</a>
                     <a class="mdl-navigation__link" href="squads.html">Squad</a>
                     <a class="mdl-navigation__link" href="fixtures.html">Fixtures</a>
-                    <a class="mdl-navigation__link" href="calendar.html">Calendar</a>
+                    <a class="mdl-navigation__link" href="https://www.facebook.com/brizzlepuffs/events">Calendar</a>
                     <a class="mdl-navigation__link" href="media.html">Media</a>
+                    <a class="mdl-navigation__link" href="http://fb.me/msg/brizzlepuffs">Contact us</a>
+                    
+                    <div id="social-links">
+                        <a class="mdl-navigation__link facebook" href="https://www.facebook.com/brizzlepuffs/" target="_blank">Facebook</a>
+                        <a class="mdl-navigation__link twitter" href="https://twitter.com/brizzlepuffs" target="_blank">Twitter</a>
+                        <a class="mdl-navigation__link instagram" href="https://www.instagram.com/brizzlepuffs_quidditch_club/" target="_blank">Instagram</a>
+                        <a class="mdl-navigation__link youtube-colour" href="https://www.youtube.com/channel/UCpClSAbTx5EYaKMmrZd3Zzw?nohtml5=False" target="_blank">Youtube</a>
+                    </div>
+                         
                 </nav>
             </div>
             
@@ -86,85 +97,7 @@
                 
                 <div class="mdl-grid main-content centered">
                     
-                    <div class="news-item mdl-card mdl-cell mdl-shadow--2dp mdl-js-ripple-effect" style="background: url('media/news_image_1.png') center / cover; height:294px;">                               
-                        <span class="mdl-ripple"></span>
-                        <h2 class="item-header">Brizzlepuffs hit Waterstones</h2> 
-                    </div>
-                    
-                    <div class="news-item mdl-card mdl-cell mdl-shadow--2dp mdl-js-ripple-effect" style="background: url('media/news_image_2.png') center / cover; height:294px;">                               
-                        <span class="mdl-ripple"></span>
-                        <h2 class="item-header">Red Bull confirms Sponsorship</h2> 
-                    </div>
-                    
-                    <div class="news-item mdl-card mdl-cell mdl-shadow--2dp mdl-js-ripple-effect" style="background: url('media/news_image_3.png') center / cover; height:294px;">                               
-                        <span class="mdl-ripple"></span>
-                        <h2 class="item-header">Bears win Nando's Trophy</h2> 
-                    </div>
-                    
-                    <div class="news-item mdl-card mdl-cell mdl-shadow--2dp mdl-js-ripple-effect" style="background: url('media/news_image_4.png') center / cover; height:294px;">                               
-                        <span class="mdl-ripple"></span>
-                        <h2 class="item-header">Recruitment drive at UWE</h2> 
-                    </div>
-                    
-                    <div class="news-item mdl-card mdl-cell mdl-shadow--2dp mdl-js-ripple-effect" style="background: url('media/news_image_1.png') center / cover; height:294px;">                               
-                        <span class="mdl-ripple"></span>
-                        <h2 class="item-header">Brizzlepuffs hit Waterstones</h2> 
-                    </div>
-                    
-                    <div class="news-item mdl-card mdl-cell mdl-shadow--2dp mdl-js-ripple-effect" style="background: url('media/news_image_2.png') center / cover; height:294px;">                               
-                        <span class="mdl-ripple"></span>
-                        <h2 class="item-header">Red Bull confirms Sponsorship</h2> 
-                    </div>
-                    
-                    <div class="news-item mdl-card mdl-cell mdl-shadow--2dp mdl-js-ripple-effect" style="background: url('media/news_image_3.png') center / cover; height:294px;">                               
-                        <span class="mdl-ripple"></span>
-                        <h2 class="item-header">Bears win Nando's Trophy</h2> 
-                    </div>
-                    
-                    <div class="news-item mdl-card mdl-cell mdl-shadow--2dp mdl-js-ripple-effect" style="background: url('media/news_image_4.png') center / cover; height:294px;">                               
-                        <span class="mdl-ripple"></span>
-                        <h2 class="item-header">Recruitment drive at UWE</h2> 
-                    </div>
-                    
-                    <div class="news-item mdl-card mdl-cell mdl-shadow--2dp mdl-js-ripple-effect" style="background: url('media/news_image_1.png') center / cover; height:294px;">                               
-                        <span class="mdl-ripple"></span>
-                        <h2 class="item-header">Brizzlepuffs hit Waterstones</h2> 
-                    </div>
-                    
-                    <div class="news-item mdl-card mdl-cell mdl-shadow--2dp mdl-js-ripple-effect" style="background: url('media/news_image_2.png') center / cover; height:294px;">                               
-                        <span class="mdl-ripple"></span>
-                        <h2 class="item-header">Red Bull confirms Sponsorship</h2> 
-                    </div>
-                    
-                    <div class="news-item mdl-card mdl-cell mdl-shadow--2dp mdl-js-ripple-effect" style="background: url('media/news_image_3.png') center / cover; height:294px;">                               
-                        <span class="mdl-ripple"></span>
-                        <h2 class="item-header">Bears win Nando's Trophy</h2> 
-                    </div>
-                    
-                    <div class="news-item mdl-card mdl-cell mdl-shadow--2dp mdl-js-ripple-effect" style="background: url('media/news_image_4.png') center / cover; height:294px;">                               
-                        <span class="mdl-ripple"></span>
-                        <h2 class="item-header">Recruitment drive at UWE</h2> 
-                    </div>
-                    
-                    <div class="news-item mdl-card mdl-cell mdl-shadow--2dp mdl-js-ripple-effect" style="background: url('media/news_image_1.png') center / cover; height:294px;">                               
-                        <span class="mdl-ripple"></span>
-                        <h2 class="item-header">Brizzlepuffs hit Waterstones</h2> 
-                    </div>
-                    
-                    <div class="news-item mdl-card mdl-cell mdl-shadow--2dp mdl-js-ripple-effect" style="background: url('media/news_image_2.png') center / cover; height:294px;">                               
-                        <span class="mdl-ripple"></span>
-                        <h2 class="item-header">Red Bull confirms Sponsorship</h2> 
-                    </div>
-                    
-                    <div class="news-item mdl-card mdl-cell mdl-shadow--2dp mdl-js-ripple-effect" style="background: url('media/news_image_3.png') center / cover; height:294px;">                               
-                        <span class="mdl-ripple"></span>
-                        <h2 class="item-header">Bears win Nando's Trophy</h2> 
-                    </div>
-                    
-                    <div class="news-item mdl-card mdl-cell mdl-shadow--2dp mdl-js-ripple-effect" style="background: url('media/news_image_4.png') center / cover; height:294px;">                               
-                        <span class="mdl-ripple"></span>
-                        <h2 class="item-header">Recruitment drive at UWE</h2> 
-                    </div>
+                    <div id="ALLNEWS"></div>
                     
                 </div>
                 

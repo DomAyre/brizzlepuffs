@@ -3,12 +3,16 @@ var http = require('http');
 var https = require('https');
 var fs = require('fs');
 var path = require('path');
-var qs = require('querystring');
+var fb = require('fb');
 
 //The database
 var sql = require("sqlite3");
 sql.verbose();
 var database = new sql.Database("private/brizzlepuffs.db");
+
+//Facebook API
+var appID = "1151366681574090";
+var appSecret = "d78a52c866b53ce6b0b59e35a5fb146b";
 
 //Define constants for codes being sent to the browser
 var OK = 200, NotFound = 404, BadType = 415;
@@ -49,24 +53,84 @@ function start(port)
 {
     //Create a server
     var service = http.createServer(handle);
+    
+    //Populate news stories
+    database.serialize(populateNews);
         
     //Start listening
     service.listen(port, 'localhost'); 
     console.log("Server running at localhost:" + port);
 }
 
+function populateNews()
+{
+    //Set access token    
+    fb.setAccessToken("1151366681574090|csWiMlqnWx-qMlSyoG0xGEuYB0Y");
+    
+    //Clear the news database
+    var insertNews = database.prepare("INSERT INTO News(Headline,Content,Image,Date) VALUES (?, ?, ?, ?)");
+    
+    fb.api( "/275052292699350/posts?limit=50&fields=message,created_time,full_picture", function (response) 
+    {
+        if (response && !response.error) 
+        {            
+            var posts = response.data;
+            for(var i = 0; i < posts.length; i++)
+            {
+                //If the post doesn't exist move onto the next one
+                if (!posts[i] || !posts[i].message) continue;
+                
+                //Parse the post into an article
+                var article = parseFBPost(posts[i]);
+                                  
+                //If the post wasn't an article move onto the next one
+                if (article != undefined)
+                {
+                    insertNews.run(article.headline, article.body, article.image, article.date, function(err)
+                    {
+                        //if (this != undefined && !err) console.log("Added article: " + article.headline);
+                        //console.log("Article: " + article + " \n\rcauses error:" + err);
+                    });
+                }
+            }
+        }
+        else if (response.error) console.log(response.error);
+    });
+}
+
+function parseFBPost(fbPost)
+{
+    //Get the headline
+    var headlinePattern = /\*+.*\*+/;
+    var headline = fbPost.message.match(headlinePattern)
+    
+    //Check it is a news story
+    if (!headline || !fbPost.full_picture) return;
+    
+    //Separate the body
+    var body = fbPost.message.replace(headline, "").trim();
+    
+    //Format the headline
+    headline = toTitleCase(headline[0].split("*").join("").trim());
+    if (headline == "") return;
+    
+    //Get the image
+    var imageURL = fbPost.full_picture;
+    
+    return { headline:headline, body:body, image:imageURL, date:fbPost.created_time};
+}
+
+function toTitleCase(str)
+{
+    return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+}
+
 // Deal with a request.
 function handle(request, response) 
-{
-    //Get the url of the request (making sure its lower case)
-    var url = request.url.toLowerCase();
-    
-    //Rewrite the url for news, fixtures and players
-    //url = parse(url);
-    
+{    
     //Get any associated query
-    var result = getQuery(url);
-    url = result[0]; query = result[1];
+    var result = getQuery(request.url);
+    var url = result[0].toLowerCase(); query = result[1];
     
     //If you're at the root load the main page
     if (ends(url, "/")) url = url + "index.html";
@@ -105,8 +169,13 @@ function replyData(response, url, query)
     //Get the parameters of the request
     var table = capitaliseFirstLetter(url.substring(9).split(".")[0]);
         
+    //Define the order
+    var order = "";
+    if (table == "Players") order = " ORDER BY Shirt ASC";
+    else order = " ORDER BY Date DESC";
+        
     //Find the player in the database
-    database.all("select * from " + table + (query? " where " + query: ""), function(error, records)
+    database.all("select * from " + table + (query? " where " + query: "") + order, function(error, records)
     {
         if (error) throw error;
         respond(response, JSON.stringify(records));
@@ -119,24 +188,18 @@ function replyFile(response, url, query)
     //Convert the url into a file path
     var file = "." + url;
     
+    //If its a player check if it exists first
+    if (contains(file,"player") && (!contains(file, "_rich") && !contains(file, "_background")) && ends(file, ".png"))
+    {
+        //If that doesn't exist use the blank image instead
+        if(!fs.existsSync(file)) file = "media/players/blank.png";
+    }
+    
     //If its a file give that
     fs.readFile(file, function(error, content)
     {
         //Check for errors
-        if(error) 
-        {
-            //If you requested a player picture which doesn't exist
-            if (contains(url,"player") && (!contains(url, "_rich") && !contains(url, "_background")) && ends(url, ".png"))
-            {
-                //Give the club logo instead
-                fs.readFile("media/players/blank.png", function(error2, content2) 
-                {
-                    if (error2) return fail(response, NotFound, "File not found");
-                    respond(response, content2);
-                });                
-            }          
-            else return fail(response, NotFound, "File not found");
-        }  
+        if(error)  return fail(response, NotFound, "File not found");
         else respond(response, content);
     });
 }
@@ -162,6 +225,9 @@ function getQuery(url)
     
     //Update the url to not contain the query
     var query = parts[1];
+    
+    //Handle spaces
+    if (query) query = query.split("%20").join(" ").split("%22").join("\"");
     
     //Return the query
     return [parts[0],query];
@@ -214,7 +280,7 @@ function getFileType(request, url)
     var acceptedHTMLTypes = request.headers['accept'].split(",");
     
     //If the browser accepts xhtml return that
-    if(contains(acceptedHTMLTypes,possibleHTMLTypes[1])) return possibleHTMLTypes[1];
+    if(contains(acceptedHTMLTypes,possibleHTMLTypes[1])) return possibleHTMLTypes[0];
     else return possibleHTMLTypes[0];
 }
 
