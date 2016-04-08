@@ -1,6 +1,7 @@
 "use strict";
 addEventListener("load", start);
 var records, visibleRecords;
+var searchingForNonPlayers = false;
 
 //HTML CONTROLS
 var rippleSpan = "<span class=\"mdl-ripple\"></span>";
@@ -11,13 +12,13 @@ function start()
     HTTPRequest.get("snippet/players.json", function(status, headers, content)
     {      
         records = JSON.parse(content);
+        visibleRecords = records;
         
         updateContent();
     });
     
     //Hook up the onkeypress function for the search box
-    document.querySelector("#search-box").addEventListener("keypress", onSearch);
-    document.querySelector("#search-box").addEventListener("onfocusout", onSearch);
+    document.querySelector("#search-box").addEventListener("keydown", onSearch);
 }
 
 function updateContent()
@@ -37,8 +38,9 @@ function updateContent()
         var newPlayer = generatePlayerCard(record);                     
         
         //Add to appropriate divs
-        if (visibleRecords.length > 10)
+        if (visibleRecords.length > 10 || !searchingForNonPlayers)
         {
+            document.querySelector("#PlayersDiv").style.visibility = "collapse";
             if (record["Keeper"]) document.querySelector("#KEEPERS").innerHTML += newPlayer;
             if (record["Chaser"]) document.querySelector("#CHASERS").innerHTML += newPlayer;
             if (record["Beater"]) document.querySelector("#BEATERS").innerHTML += newPlayer;
@@ -47,6 +49,7 @@ function updateContent()
         }
         else
         {
+            document.querySelector("#PlayersDiv").style.visibility = "visible";
             document.querySelector("#PLAYERS").innerHTML += newPlayer;
             setContainersVisibility("hidden");
         }
@@ -71,54 +74,101 @@ function generatePlayerCard(record)
 }
 
 function onSearch(event)
-{
-    //If the key was enter, continue
-    if (event.keyCode != 13) return;
+{    
+    //Get the pressed key
+    var key = event.keyCode;
+    var searchString = document.querySelector("#search-box").value + String.fromCharCode(key);    
+    if (key == 8) searchString = searchString.substring(0,searchString.length-2);
     
     //Get the string being searched for
-    var searchString = { text:document.querySelector("#search-box").value.toLowerCase() };
+    var searchObj = { text:searchString };
+    
+    search(searchObj);
+}
+
+function search(searchString)
+{
+    searchString.text = searchString.text.toLowerCase();
+    console.log(searchString.text);
     
     //Check for things to filter by
     var conditions = [];
-    if (contains(searchString, ["brizzlebear", "bear"])) conditions.push("Team=\"Brizzlebears\" ");
-    if (contains(searchString, ["brizzlebee", "bee"])) conditions.push("Team=\"Brizzlebees\" ");
+    if (synomymPresent(searchString, ["brizzlebear", "bear"])) conditions.push("Brizzlebears");
+    if (synomymPresent(searchString, ["brizzlebee", "bee"])) conditions.push("Brizzlebees");
     
-    if (contains(searchString, ["keeper"])) conditions.push("Keeper=1 ");
-    if (contains(searchString, ["chaser"])) conditions.push("Chaser=1 ");
-    if (contains(searchString, ["beater"])) conditions.push("Beater=1 ");
-    if (contains(searchString, ["seeker"])) conditions.push("Seeker=1 ");
+    if (synomymPresent(searchString, ["keeper"])) conditions.push("Keeper");
+    if (synomymPresent(searchString, ["chaser"])) conditions.push("Chaser");
+    if (synomymPresent(searchString, ["beater"])) conditions.push("Beater");
+    if (synomymPresent(searchString, ["seeker"])) conditions.push("Seeker");
     
-    if (contains(searchString, ["assistant referee", "assistant ref"])) conditions.push("AR_Trained=1 ");
-    if (contains(searchString, ["snitch referee", "snitch ref"])) conditions.push("SR_Trained=1 ");
-    if (contains(searchString, ["head referee", "head ref"])) conditions.push("HR_Trained=1 ");
-    if (contains(searchString, ["referee", "ref"]) && !ar && !sr && !hr) conditions.push("AR_Trained=1 OR SR_Trained=1 OR HR_Trained=1 ");
+    if (synomymPresent(searchString, ["assistant referee", "assistant ref"])) conditions.push("AR"); searchingForNonPlayers = true;
+    if (synomymPresent(searchString, ["snitch referee", "snitch ref"])) conditions.push("SR"); searchingForNonPlayers = true;
+    if (synomymPresent(searchString, ["head referee", "head ref"])) conditions.push("HR"); searchingForNonPlayers = true;
+    if (synomymPresent(searchString, ["referee", "ref"])) conditions.push("Referee"); searchingForNonPlayers = true;
         
-    if (contains(searchString, ["first aid", "medic"])) conditions.push("First_Aid_Trained=1 ");
-    if (contains(searchString, ["snitche", "snitch"])) conditions.push("Snitch=1 ");
+    if (synomymPresent(searchString, ["first aid", "medic"])) conditions.push("First_Aid"); searchingForNonPlayers = true;
+    if (synomymPresent(searchString, ["snitche", "snitch"])) conditions.push("Snitch"); searchingForNonPlayers = true;
     
     //Search the remaining words for names
     var searchStringWords = searchString.text.split(" ");
     for (var i = 0; i < searchStringWords.length; i++)
     {
         if(searchStringWords[i].trim() != "") 
-            conditions.push("(First_Name LIKE \"" + searchStringWords[i] + "\" OR Last_Name LIKE \"" + searchStringWords[i] + "\") ");
+            conditions.push("Name_" + searchStringWords[i]);
+    }
+    
+    console.log(conditions);
+    
+    filterRecords(conditions);
+}
+
+function filterRecords(conditions)
+{
+    //Clear visible records
+    visibleRecords = [];
+    
+    //Go through each record
+    for (var i = 0; i < records.length; i++)
+    {
+        var record = records[i];
+        
+        //Check each condition
+        if ((contains(conditions,"Brizzlebears") || contains(conditions,"Brizzlebees")) && !contains(conditions,record["Team"]) ) continue;
+        if (contains(conditions,"Keeper") && !record["Keeper"]) continue;
+        if (contains(conditions,"Chaser") && !record["Chaser"]) continue;
+        if (contains(conditions,"Beater") && !record["Beater"]) continue;
+        if (contains(conditions,"Seeker") && !record["Seeker"]) continue;
+        if (contains(conditions,"AR") && !record["AR_Qualified"]) continue;
+        if (contains(conditions,"SR") && !record["SR_Qualified"]) continue;
+        if (contains(conditions,"HR") && !record["HR_Qualified"]) continue;
+        if (contains(conditions,"Referee") && !(record["AR_Qualified"] || record["SR_Qualified"] || record["HR_Qualified"])) continue;
+        if (contains(conditions,"First_Aid") && !record["First_Aid_Trained"]) continue;
+        if (contains(conditions,"Snitch") && !record["Snitch"]) continue;
+        
+        //Search for names
+        var nameConditions = conditions.filter(isNameCondition);
+        var nameConditionViolated = false;
+        for (var j = 0; j < nameConditions.length; j++)
+        {
+            var name = nameConditions[j].split("_")[1];
+            var number = parseInt(name);
+            if (number && record["Shirt"] == number) continue;
+            nameConditionViolated = (!contains(record["First_Name"].toLowerCase(), name) && !contains(record["Last_Name"].toLowerCase(), name));
+        }
+        if (nameConditionViolated) continue;
+        
+        visibleRecords.push(record);
     }
     
     updateContent();
 }
 
-function formSQL(conditions)
+function isNameCondition(condition)
 {
-    var sqlConditions = "";
-    for (var i = 0; i < conditions.length; i++)
-    {
-        sqlConditions += (i>0? "AND " : "") + conditions[i];
-    }
-    console.log(sqlConditions);
-    return sqlConditions;
+    return condition.indexOf("Name_") != -1;
 }
 
-function contains(s, x) 
+function synomymPresent(s, x) 
 { 
     //For each synonym
     for (var i = 0; i < x.length; i++)
@@ -140,3 +190,4 @@ function contains(s, x)
     }
     return false;
 }
+function contains(s, x) { return s.indexOf(x) != -1 }

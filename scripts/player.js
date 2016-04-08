@@ -32,6 +32,7 @@ function start()
         document.querySelector("#player-image").style.backgroundColor = (player["Team"] == "Brizzlebees"? "yellow" : "red");
         
         //Set the badges
+        console.log(player);
         var badges = "";
         if (player["Team"] == "Brizzlebears") badges += badge("bear");
         if (player["Team"] == "Brizzlebees") badges += badge("bee");
