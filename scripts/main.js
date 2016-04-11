@@ -133,12 +133,12 @@ function scrollBackground(event)
 {   
     //Get the amount that has been scrolled
     var scrolled = event.target.scrollTop;
-    var backgroundScroll = scrolled*parallax;
+    var backgroundScroll = Math.max(0,scrolled*parallax);
     
     //Scroll the background
     if (backgroundScroll-25 <= backgroundHeight)
     {
-        $(".background").css("background-position", "0" + -backgroundScroll + "px");
+        document.querySelector(".background").style.backgroundPosition = "0px " + -backgroundScroll + "px";
     }
 }
 
