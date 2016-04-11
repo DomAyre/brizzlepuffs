@@ -189,7 +189,7 @@ p
 }
 
 
-.news { height: auto; } .news > .section-header { height: 50px; }
+.news { height: auto; min-height: 428px; } .news > .section-header { height: 50px; }
 
 /*A button to let the user click to scroll left or right*/
 .horizontal-button
