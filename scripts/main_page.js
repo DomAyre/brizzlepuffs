@@ -22,10 +22,8 @@ function start()
             
             var nextNewsItem = newsItem + rippleSpan + headline;
             
-            newsHTML = newsHTML + nextNewsItem;
-        }
-        
-        $('#ALLNEWS').replaceWith(newsHTML);        
+            document.querySelector("#ALLNEWS").innerHTML += nextNewsItem;
+        }    
     });
     
     //Populate the fixtures section
