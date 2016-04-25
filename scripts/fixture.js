@@ -38,12 +38,23 @@ function start()
         document.querySelector("#fixture-date").innerHTML = fixture["Date"];
         
         //Set the score
-        var homeScore = fixture["Home_Team_Score"].toString() + (fixture["Snitch"].toString() == fixture["Home_Team"]? "*" : "");
-        var awayScore =  (fixture["Snitch"].toString() == fixture["Away_Team"]? "*" : "") + fixture["Away_Team_Score"].toString();
+        var homeScore = fixture["Home_Team_Score"].toString() + snitch(fixture, fixture["Home_Team"]);
+        var awayScore =  snitch(fixture, fixture["Away_Team"]) + fixture["Away_Team_Score"].toString();
         document.querySelector("#fixture-score").innerHTML = homeScore + " - " + awayScore;
         
         //Set the writeup
         var writeup = (fixture["Writeup"] != null? fixture["Writeup"] : "There is no writeup for this match yet, to submit one email brizzlepuffs@outlook.com");
         document.querySelector("#writeup").innerHTML = writeup.split("\n").join("<br/>");
     });
+}
+
+function snitch(fixture, team)
+{
+    console.log(fixture["Snitch"].toString());
+    console.log(fixture["Overtime"]);
+    console.log(fixture["Home_Team"]);
+    console.log(fixture["Away_Team"]);
+    if (fixture["Snitch"].toString() != team) return "";
+    if (fixture["Overtime"]) return "^";
+    else return "*";
 }

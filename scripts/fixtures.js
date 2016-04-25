@@ -4,6 +4,12 @@ addEventListener("load", start);
 //HTML CONTROLS
 var rippleSpan = "<span class=\"mdl-ripple\"></span>";
 
+function toDateString(dbDate)
+{
+    var components = dbDate.split("-");
+    return components[2] + "/" + components[1] + "/" + components[0];
+}
+
 function start()
 {
     //Populate the fixture section
@@ -23,7 +29,7 @@ function start()
             var versus = "<h6 id=\"versus\">V</h6>";
             var team2Logo = "<div style=\"background-image: url('media/teams/" + record["Away_Team"].toLowerCase() + ".png');\" class=\"team-logo team2\"></div> </div>";
             var team2Name = "<h6 id=\"team2Name\" class=\"team-label team2 mdl-card__title-text\">" + record["Away_Team"] + "</h6> </div>";
-            var header = "<h2 class=\"item-header fixture\">" + record["Date"] + " <br/> " + record["Venue"] + "</h2> </a>";
+            var header = "<h2 class=\"item-header fixture\">" + toDateString(record["Date"]) + " <br/> " + record["Venue"] + "</h2> </a>";
             
             var nextFixture = fixtureItem + rippleSpan + team1Name + team1Logo + versus + team2Logo + team2Name + header;
             fixturesHTML = fixturesHTML + nextFixture;

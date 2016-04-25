@@ -55,7 +55,8 @@ function start(port)
     var service = http.createServer(handle);
     
     //Populate news stories
-    database.serialize(populateNews);
+    try { database.serialize(populateNews); }
+    catch(err) {}
         
     //Start listening
     service.listen(port, 'localhost'); 
@@ -117,7 +118,7 @@ function parseFBPost(fbPost)
     //Get the image
     var imageURL = fbPost.full_picture;
     
-    return { headline:headline, body:body, image:imageURL, date:fbPost.created_time};
+    return { headline:headline, body:body, image:imageURL, date:fbPost.created_time.split("+")[0]};
 }
 
 function toTitleCase(str)
@@ -172,7 +173,7 @@ function replyData(response, url, query)
     //Define the order
     var order = "";
     if (table == "Players") order = " ORDER BY Shirt ASC";
-    else order = " ORDER BY Date DESC";
+    else order = " ORDER BY date(Date) DESC";
         
     //Find the player in the database
     database.all("select * from " + table + (query? " where " + query: "") + order, function(error, records)
