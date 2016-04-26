@@ -50,10 +50,6 @@ function start()
 
 function snitch(fixture, team)
 {
-    console.log(fixture["Snitch"].toString());
-    console.log(fixture["Overtime"]);
-    console.log(fixture["Home_Team"]);
-    console.log(fixture["Away_Team"]);
     if (fixture["Snitch"].toString() != team) return "";
     if (fixture["Overtime"]) return "^";
     else return "*";
