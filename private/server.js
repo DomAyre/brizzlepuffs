@@ -281,7 +281,7 @@ function getFileType(request, url)
     var acceptedHTMLTypes = request.headers['accept'].split(",");
     
     //If the browser accepts xhtml return that
-    if(contains(acceptedHTMLTypes,possibleHTMLTypes[1])) return possibleHTMLTypes[0];
+    if(contains(acceptedHTMLTypes,possibleHTMLTypes[1])) return possibleHTMLTypes[1];
     else return possibleHTMLTypes[0];
 }
 

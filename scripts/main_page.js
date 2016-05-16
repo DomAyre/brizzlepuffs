@@ -22,13 +22,17 @@ function start()
         for(var i = 0; i < Math.min(records.length,3); i++)
         {
             var record = records[i];
-                    
-            var newsItem = "<a id=\"" + record["Headline"] + "\" href=\"article.html?id=" + record["ID"] + "\" class=\"news-item mdl-card mdl-cell " + (i==0? "mdl-cell--8-col-tablet " : "") + "mdl-shadow--2dp mdl-js-ripple-effect\" style=\"background-image: url('" + record["Image"] + "')\">";                              
-            var headline = "<h2 class=\"item-header\">" + record["Headline"] + "</h2> </a>";
+                              
+            var headline = "<h2 class=\"item-header\">" + record["Headline"] + "</h2>";
             
-            var nextNewsItem = newsItem + rippleSpan + headline;
+            var nextNewsItem = document.createElement("a");
+            nextNewsItem.id = record["Headline"];
+            nextNewsItem.href = "article.html?id=" + record["ID"];
+            nextNewsItem.className = "news-item mdl-card mdl-cell " + (i==0? "mdl-cell--8-col-tablet " : "") + "mdl-shadow--2dp mdl-js-ripple-effect";
+            nextNewsItem.style.backgroundImage = "url('" + record["Image"] + "')";
+            nextNewsItem.innerHTML = rippleSpan + headline;       
             
-            document.querySelector("#ALLNEWS").innerHTML += nextNewsItem;
+            document.querySelector("#ALLNEWS").appendChild(nextNewsItem);
         }    
     });
     
