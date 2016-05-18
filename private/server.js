@@ -129,6 +129,10 @@ function toTitleCase(str)
 // Deal with a request.
 function handle(request, response) 
 {    
+    //Handle spaces
+    request.url = request.url.split("%20").join(" ").split("%22").join("\"");
+    console.log(request.url);
+    
     //Get any associated query
     var result = getQuery(request.url);
     var url = result[0].toLowerCase(); query = result[1];
@@ -226,9 +230,6 @@ function getQuery(url)
     
     //Update the url to not contain the query
     var query = parts[1];
-    
-    //Handle spaces
-    if (query) query = query.split("%20").join(" ").split("%22").join("\"");
     
     //Return the query
     return [parts[0],query];
