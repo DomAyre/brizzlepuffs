@@ -60,10 +60,14 @@ function start()
             if ($(this).data('params')) iframe_url+='&'+$(this).data('params');
     
             //Define the HTML for the iframe
-            var iframe = "<iframe src='" + iframe_url + "' class='video' frameborder='0'  allowfullscreen='true'></iframe>";
+            var iframe = document.createElement("iframe");
+            iframe.src = iframe_url;
+            iframe.className = "video"
+            iframe.frameBorder = "0";
+            iframe.allowFullscreen = true;
     
             // Replace the YouTube thumbnail with YouTube HTML5 Player
-            this.innerHTML = iframe;
+            this.innerHTML = iframe.outerHTML;
         });
     });
 
