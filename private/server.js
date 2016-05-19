@@ -131,7 +131,6 @@ function handle(request, response)
 {    
     //Handle spaces
     request.url = request.url.split("%20").join(" ").split("%22").join("\"");
-    console.log(request.url);
     
     //Get any associated query
     var result = getQuery(request.url);
