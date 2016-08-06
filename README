@@ -1,0 +1,16 @@
+// REQUIREMENTS
+
+Make sure you have the latest version of Node.js installed, you can get it here: https://nodejs.org/en/
+
+All the necessary node modules are stored locally, however the sqlite3 module used 
+for the database is platform dependent so if you get errors while trying to run then 
+just call "npm install sqlite3" and that should update the module for your system
+
+// RUNNING THE SERVER
+
+To run the server from the root directory, use the line: "node private/server.js".
+
+// DATABASE
+
+The database uses sqlite3 and there are guis available to view and manage the content
+I recommend: http://sqlitebrowser.org

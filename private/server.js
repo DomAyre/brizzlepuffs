@@ -4,6 +4,7 @@ var https = require('https');
 var fs = require('fs');
 var path = require('path');
 var fb = require('fb');
+var timer = require('timers');
 
 //The database
 var sql = require("sqlite3");
@@ -21,13 +22,13 @@ var OK = 200, NotFound = 404, BadType = 415;
 var port = 8080;
 
 var types = {
-    '.html' : 'text/html, application/xhtml+xml',    // old browsers only, see negotiate
+    '.html' : 'text/html, application/xhtml+xml',
     '.css'  : 'text/css',
     '.js'   : 'application/javascript',
     '.png'  : 'image/png',
-    '.gif'  : 'image/gif',    // for images copied unchanged
-    '.jpeg' : 'image/jpeg',   // for images copied unchanged
-    '.jpg'  : 'image/jpeg',   // for images copied unchanged
+    '.gif'  : 'image/gif', 
+    '.jpeg' : 'image/jpeg',
+    '.jpg'  : 'image/jpeg',
     '.svg'  : 'image/svg+xml',
     '.json' : 'application/json',
     '.pdf'  : 'application/pdf',
@@ -37,12 +38,12 @@ var types = {
     '.mp3'  : 'audio/mpeg',
     '.mp4'  : 'video/mp4',
     '.webm' : 'video/webm',
-    '.ico'  : 'image/x-icon', // just for favicon.ico
-    '.xhtml': undefined,      // not suitable for dual delivery, use .html
-    '.htm'  : undefined,      // non-standard, use .html
-    '.rar'  : undefined,      // non-standard, platform dependent, use .zip
-    '.doc'  : undefined,      // non-standard, platform dependent, use .pdf
-    '.docx' : undefined,      // non-standard, platform dependent, use .pdf
+    '.ico'  : 'image/x-icon',
+    '.xhtml': undefined,
+    '.htm'  : undefined,
+    '.rar'  : undefined,
+    '.doc'  : undefined,
+    '.docx' : undefined,
 };
 
 //Start the server
@@ -57,6 +58,9 @@ function start(port)
     //Populate news stories
     try { database.serialize(populateNews); }
     catch(err) {}
+    
+    //Set a timer to keep news stories up to date
+    setInterval(populateNews, 1000 * 60 * 60 * 12);
         
     //Start listening
     service.listen(port, 'localhost'); 
